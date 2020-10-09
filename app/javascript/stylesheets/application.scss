@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+// Navbar Colours
+$navbar-background-color: #7ecafc;
+$navbar-dropdown-background-color: #7ecafc;
+$navbar-item-color: #f5f5f5;
+$navbar-burger-color: #f5f5f5;
+$navbar-item-hover-color: #69c0fc;
+$navbar-dropdown-arrow: #f5f5f5;
+$navbar-dropdown-item-hover-color: #69c0fc;
+$navbar-item-hover-background-color: #69c0fc;
+$navbar-dropdown-item-hover-background-color: #69c0fc;
+
+@import "~bulma/bulma";
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+// Universal Styling
+* {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.main {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.section {
+  flex: 1;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+  padding-bottom: 12px;
+}
+
+// Navbar Styling
+.navbar {
+  img {
+    margin: auto;
+    margin-top: 5px;
+    max-width: 75%;
+    border-radius: 25%;
+  }
+  .navbar-burger {
+    margin-top: 20px;
+  }
+}
+
+// Footer Styling
+.footer {
+  padding: 1rem 0.5rem 1rem;
+  p {
+    padding: 0 0 0 0;
+  }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+
+    <%= render 'layouts/partials/rails_default' %>
+  </head>
+
+  <body class="main">
+    <%= render 'layouts/partials/navbar' %>
+
+    <div class="section">
+      <div class="container">
+
+        <% flash.each do |message_type, message| %>
+          <article class="message is-<%= message_type %>">
+            <%= content_tag(:div, message, class: "message-body is-#{message_type}") %>
+          </article>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render 'layouts/partials/footer' %>
+  </body>
+</html>

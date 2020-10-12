@@ -1,0 +1,59 @@
+<% provide(:title, 'Membership') %>
+
+<h1 class="title is-1">Pay Your Season Membership Dues</h1>
+
+<p class="has-text-centered">
+  Membership dues and all game match fees are to be paid via PayPal.
+  You will not be selected for any team if you have not paid your dues.
+</p>
+<hr>
+
+<div class="columns is-vcenetered">
+  <div class="column">
+    <h3 class="title is-3 has-text-centered">Full Membership</h3>
+    <p class="is-size-4 has-text-centered has-text-weight-medium" style="margin-top:-12px;">
+      $375 per year
+    </p>
+    <div class="column has-text-centered">
+      <%= render 'static_pages/partials/full_membership' %>
+    </div>
+  </div>
+
+  <div class="column">
+    <h3 class="title is-3 has-text-centered">Viewers Membership</h3>
+    <p class="is-size-4 has-text-centered has-text-weight-medium" style="margin-top:-12px;">
+      $50 per year
+    </p>
+    <div class="column has-text-centered">
+      <%= render 'static_pages/partials/viewer_membership' %>
+    </div>
+  </div>
+
+  <div class="column">
+    <h3 class="title is-3 has-text-centered">Student Membership</h3>
+    <p class="is-size-4 has-text-centered has-text-weight-medium" style="margin-top:-12px;">
+      $200 per year
+    </p>
+    <p>
+      Student Memberships are available to full time College, University
+      and High School students only. If you believe you qualify, please
+      <%= link_to 'contact us', contact_index_path %> and we will advise you how to pay.
+    </p>
+  </div>
+</div>
+<hr style="margin-top:-12px;">
+
+<p class="is-size-5 has-text-centered has-text-weight-medium">
+  Download the PayPal app onto your phone for your convenience.
+</p>
+
+<div class="columns is-justify-content-space-around" style="padding-top:15px;">
+  <div class="column is-3">
+    <%= link_to image_tag('app_store.png', alt: 'PayPal App on the Apple App Store'),
+                'https://itunes.apple.com/us/app/paypal-mobile-cash/id283646709?mt=8', target: 'blank' %>
+  </div>
+  <div class="column is-3">
+    <%= link_to image_tag('play_store.png', alt: 'PayPal App on the Google Play Store'),
+        'https://play.google.com/store/apps/details?id=com.paypal.android.p2pmobile&hl=en_US', target: 'blank' %>
+  </div>
+</div>

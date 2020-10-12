@@ -1,0 +1,45 @@
+<% provide(:title, 'About') %>
+
+<h1 class="title is-1">About Us</h1>
+
+<div class="columns">
+  <div class="column">
+    <p>
+      Welcome to the Marin Cricket Club! Our goal is to play and promote cricket in the Bay Area in a fun, relaxed and inclusive environment.
+    </p>
+    <p>
+      We are a proud member of the <%= link_to 'Northern California Cricket Association', 'http://www.ncalcricket.org', target: 'blank' %>
+      and we run a 3 tiered team structure. We run two League teams playing as part of NCCA and a Social team.
+    </p>
+    <p>
+      The Socials team plays nearly every weekend primarily on Saturdays from the beginning of May until the end of October.
+      Our league teams tour around all parts of the Bay Area but are usually found hosting games on our field on Sundays.
+    </p>
+    <p>
+      Our home games are played at <%= link_to 'Piper Park', 'https://goo.gl/maps/P9551sHbt8AXeuUH9', target: 'blank' %>
+      located in Larkspur. It is a beautiful place to both watch and play game of cricket so we would love
+      for you to stop by and chat with us to learn more about our club or about how the game is played.
+    </p>
+    <p>
+      If you are interested in playing with or against us, please <%= link_to 'Contact Us', contact_index_path %>
+      or to learn about our <%= link_to 'Executive Team', executives_path %> click here.
+    </p>
+  </div>
+  <div class="column is-4">
+    <figure class="has-text-centered">
+      <%= image_tag 'MCC_1951.png', alt: 'Marin Cricket Club Members in 1951' %>
+      <figcaption>
+        Marin Cricket Club Members in 1951
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="column">
+  <figure class="has-text-centered">
+    <%= image_tag 'whole_club.jpg', alt: 'A Picture of Heaps of Club Members' %>
+    <figcaption>
+      Marin Cricket Club Members in 2017
+    </figcaption>
+  </figure>
+</div>

@@ -7,6 +7,12 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     @base_title = 'Marin Cricket Club'
   end
 
+  test 'should get home' do
+    get root_path
+    assert_response :success
+    assert_select 'title', @base_title.to_s
+  end
+
   test 'should get about' do
     get about_path
     assert_response :success
@@ -17,12 +23,6 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     get executives_path
     assert_response :success
     assert_select 'title', "Executives | #{@base_title}"
-  end
-
-  test 'should get home' do
-    get root_path
-    assert_response :success
-    assert_select 'title', @base_title.to_s
   end
 
   test 'should get history' do

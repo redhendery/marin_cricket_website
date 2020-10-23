@@ -6,3 +6,4 @@ require: rubocop-rails
 Metrics/BlockLength:
   Exclude:
     - 'config/environments/development.rb'
+    - 'config/environments/production.rb'

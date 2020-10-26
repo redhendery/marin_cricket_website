@@ -8,7 +8,8 @@ class ContactTest < ActiveSupport::TestCase
       name: 'Guy Person',
       phone: '12345678',
       email: 'dummy@contact.com',
-      message: 'Hello, I am contacting you.'
+      message: 'Hello, I am contacting you.',
+      fax_number: ''
     )
   end
 
@@ -44,7 +45,7 @@ class ContactTest < ActiveSupport::TestCase
   end
 
   test 'email address canot exceed maximum 255 character length ' do
-    @contact.email = 'a' * 256 + '@email.com'
+    @contact.email = "#{'a' * 256}@email.com"
     assert_not @contact.valid?
   end
 
@@ -109,6 +110,12 @@ class ContactTest < ActiveSupport::TestCase
 
   test 'accepts valid message' do
     @contact.message = 'a' * 25
+    assert @contact.valid?
+  end
+
+  #  Blank field tests
+  test 'accepts form if left blank' do
+    @contact.fax_number = ''
     assert @contact.valid?
   end
 end

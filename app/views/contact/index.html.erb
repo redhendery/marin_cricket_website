@@ -31,16 +31,16 @@
             placeholder: 'Your message for the Marin Cricket Club', data: { controller: 'textarea-autogrow' } %>
       </div>
 
+      <div class="field" style="display:none">
+        <%= f.text_field :ham_sandwich, autocomplete: 'off' %>
+      </div>
+
       <div class="field">
         <%= f.submit 'Send Message', class: 'button is-medium is-link is-fullwidth' %>
       </div>
 
-      <div class="field">
-        <%= f.telephone_field :fax_number, required: false, class: 'input', type: 'tel',
-                   placeholder: 'Leave blank', autocomplete: 'off', style: 'display:none' %>
-      </div>
-
     <% end %>
+    <br>
     <p>
       The Marin Cricket Club website does not collect or store
       your email address and phone number if you complete this form.

@@ -9,11 +9,13 @@ class ContactController < ApplicationController
   def create
     @contact = Contact.new(params[:contact])
     @contact.request = request
-    if @contact.deliver
-      redirect_to root_url
-      flash[:success] = 'Thank you for your message! We will get back to you soon'
-    else
+    # Prevent sending mail if ham_sandwich "honey pot" bot field completed
+    if @contact.ham_sandwich.present?
       render :index
+    else
+      @contact.deliver
+      flash[:success] = 'Thank you for your message! We will get back to you soon'
+      redirect_to root_url
     end
   end
 

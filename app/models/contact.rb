@@ -6,14 +6,13 @@ class Contact < MailForm::Base
   attribute :email
   attribute :phone
   attribute :message
-  attribute :fax_number
+  attribute :ham_sandwich
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :name, presence: true, length: { minimum: 3, maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
   validates :phone, presence: true, length: { minimum: 6, maximum: 15 }, numericality: { only_integer: true }
   validates :message, presence: true, length: { minimum: 10 }
-  validates :fax_number, presence: false
 
   def headers
     {

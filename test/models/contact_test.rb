@@ -92,11 +92,6 @@ class ContactTest < ActiveSupport::TestCase
     assert @contact.valid?
   end
 
-  test 'phone number does not contact letters' do
-    @contact.phone = '1a2b3c4d'
-    assert_not @contact.valid?
-  end
-
   # Message field tests
   test 'message field must be present' do
     @contact.message = '      '
@@ -118,5 +113,4 @@ class ContactTest < ActiveSupport::TestCase
     @contact.ham_sandwich = ''
     assert @contact.valid?
   end
-
 end

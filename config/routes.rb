@@ -9,6 +9,16 @@ Rails.application.routes.draw do
   get '/membership', to: 'static_pages#membership'
   get '/sponsors', to: 'static_pages#sponsors'
 
+  # User Sign Up and Sign In and Sign Out
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
   # Contact Routes
   resources :contact, only: %i[index new create]
+
+  # User Routes
+  resources :users, path: '/players'
 end

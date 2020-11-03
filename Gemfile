@@ -10,7 +10,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'friendly_id'
-gem 'jbuilder', '~> 2.7'
+# gem 'jbuilder', '~> 2.7'
 gem 'mail_form'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'

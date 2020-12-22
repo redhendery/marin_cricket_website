@@ -16,9 +16,13 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  # Contact Routes
+  # Contact Page Routes
   resources :contact, only: %i[index new create]
 
-  # User Routes
+  # Account Activation and Password Reset Routes
+  resources :account_activations, only: [:edit]
+  resources :password_resets, only: %i[new create edit update]
+
+  # User Routes, with path as /players
   resources :users, path: '/players'
 end

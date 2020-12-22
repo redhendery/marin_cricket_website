@@ -1,0 +1,10 @@
+<h1 class="title is-1">Welcome to the Marin Cricket Club!</h1>
+
+<p>Hello <%= @user.first_name %> <%= @user.last_name %>,</p>
+
+<p>
+  Thank you for signing up to play for the Marin Cricket Club! You must activate your account
+  in order to make yourself available for either Socials or NCCA League Cricket games.
+</p>
+
+<%= link_to 'Activate', edit_account_activation_url(@user.activation_token, email: @user.email) %>

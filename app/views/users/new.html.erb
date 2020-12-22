@@ -3,4 +3,9 @@
 
 <h1 class="title is-1">Sign Up</h1>
 
-<%= render 'users/partials/form' %>
+<div class="columns is-centered">
+  <div class="column is-5">
+    <%= render 'users/partials/form' %>
+    <p class="extra-padding is-size-5">Already have an account? <%= link_to 'Log in here', login_path %> instead!</p>
+  </div>
+</div>

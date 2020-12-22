@@ -1,1 +1,41 @@
 <% provide(:title, @user.first_name + ' ' + @user.last_name) %>
+
+<div class="columns is-vcentered">
+  <div class="column">
+    <h2 class="title is-2">
+      <%= @user.first_name %> <%= @user.last_name %>
+    </h2>
+    <% if admin_logged_in? %>
+      <p>
+        <span class="has-text-weight-semibold">
+          Email:
+        </span>
+        <%= mail_to @user.email %>
+      </p>
+    <% end %>
+    <p>
+      <span class="has-text-weight-semibold">
+        Role:
+      </span>
+      <%= @user.role %>
+    </p>
+    <p>
+      <span class="has-text-weight-semibold">
+        Bats:
+      </span>
+      <%= @user.bats %>
+    </p>
+    <p>
+      <span class="has-text-weight-semibold">
+        Bowls:
+      </span>
+      <%= @user.bowls %>
+    </p>
+    <p>
+      <span class="has-text-weight-semibold">
+        About:
+      </span>
+      <%= @user.profile %>
+    </p>
+  </div>
+</div>

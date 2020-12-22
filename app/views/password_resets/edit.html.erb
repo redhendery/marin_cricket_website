@@ -1,0 +1,28 @@
+<%= provide(:title, 'Forgot Password') %>
+
+<h1 class="title is-1">Reset Your Password</h1>
+
+<div class="columns is-centered">
+  <div class="column is-5">
+    <%= form_with model: @user, url: password_reset_path(params[:id]) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= hidden_field_tag :email, @user.email %>
+
+      <div class="field">
+        <%= f.label :password, class: 'label' %>
+        <%= f.password_field :password, required: true,
+            class: 'input', type: 'password', placeholder: 'Choose a Password' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, class: 'label' %>
+        <%= f.password_field :password_confirmation, required: true,
+            class: 'input', type: 'password', placeholder: 'Confirm Your Password' %>
+      </div>
+
+      <div class="field">
+        <%= f.submit 'Update Your Password', class: 'button is-medium is-link is-fullwidth' %>
+      </div>
+    <% end %>
+  </div>
+</div>

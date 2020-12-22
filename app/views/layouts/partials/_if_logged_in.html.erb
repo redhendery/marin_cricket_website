@@ -1,0 +1,11 @@
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link has-text-white">
+    My Profile
+  </a>
+  <div class="navbar-dropdown is-size-5 has-text-weight-bold">
+    <%= link_to 'View Profile', current_user, class: 'navbar-item has-text-white' %>
+    <%= link_to 'Edit Profile', edit_user_path(current_user), class: 'navbar-item has-text-white' %>
+    <hr class="navbar-divider">
+    <%= link_to 'Log Out', logout_path, method: :delete, class: 'navbar-item has-text-white' %>
+  </div>
+</div>

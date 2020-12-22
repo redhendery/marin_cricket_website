@@ -38,6 +38,14 @@ p {
   padding-bottom: 12px;
 }
 
+.extra-padding {
+  padding-top: 17px;
+}
+
+.negative-margin {
+  margin-top: -12px;
+}
+
 // Navbar Styling
 .navbar {
   img {
@@ -57,4 +65,14 @@ p {
   p {
     padding: 0 0 0 0;
   }
+}
+
+//  Form specific filing
+.select, .select select {
+  width: 100%;
+}
+
+// Button Font Weight
+.button {
+  font-weight: 500;
 }

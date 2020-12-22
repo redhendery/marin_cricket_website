@@ -1,9 +1,33 @@
 inherit_from: .rubocop_todo.yml
 
+require: rubocop-minitest
 require: rubocop-performance
 require: rubocop-rails
 
-Metrics/BlockLength:
+AllCops:
   Exclude:
-    - 'config/environments/development.rb'
-    - 'config/environments/production.rb'
+    - 'db/**/*.rb'
+    - 'node_modules/**/**'
+    - 'config/environments/*.rb'
+
+Lint/UselessAssignment:
+  Enabled: true
+  Exclude:
+  - 'app/helpers/sessions_helper.rb'
+
+Metrics/AbcSize:
+  Enabled: true
+  Exclude:
+    - 'app/controllers/sessions_controller.rb'
+    - 'app/controllers/account_activations_controller.rb'
+
+Metrics/MethodLength:
+  Enabled: true
+  Exclude:
+    - 'app/controllers/sessions_controller.rb'
+
+Rails/SkipsModelValidations:
+  Enabled: true
+  Exclude:
+    - 'app/models/user.rb'
+    - 'test/helpers/sessions_helper_test.rb'

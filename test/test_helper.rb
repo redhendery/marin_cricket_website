@@ -18,6 +18,10 @@ module ActiveSupport
       !session[:user_id].nil?
     end
 
+    def admin_logged_in?
+      current_user.admin? if logged_in?
+    end
+
     def log_in_as(user)
       session[:user_id] = user.id
     end

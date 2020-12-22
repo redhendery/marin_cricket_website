@@ -18,6 +18,8 @@
         <%= link_to 'Membership', membership_path, class: 'navbar-item has-text-white' %>
         <%= link_to 'Sponsors', sponsors_path, class: 'navbar-item has-text-white' %>
         <%= link_to 'Contact', contact_index_path, class: 'navbar-item has-text-white' %>
+        <%= link_to 'Log In', login_path, class: 'navbar-item has-text-white' unless logged_in? %>
+        <%= render 'layouts/partials/if_logged_in' if logged_in? %>
       </div>
     </div>
   </div>

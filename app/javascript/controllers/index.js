@@ -3,7 +3,6 @@
 
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
-import TextareaAutogrow from "stimulus-textarea-autogrow"
 
 const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)

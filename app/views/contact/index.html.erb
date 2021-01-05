@@ -4,7 +4,7 @@
 
 <div class="columns is-centered">
   <div class="column is-6">
-    <%= form_with model: @contact, url: contact_index_path do |f| %>
+    <%= form_with model: @contact, url: contact_index_path, local: true do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <div class="field">
@@ -26,12 +26,10 @@
       </div>
 
       <div class="field">
-        <div data-controller="auto-grow-textarea">
-          <%= f.label :message, class: 'label' %>
-          <%= f.text_area :message, rows: 8, cols: 40, required: true, class: 'textarea',
-              placeholder: 'Your message for the Marin Cricket Club',
-              data: { action: 'input->auto-grow-textarea#resize', target: 'auto-grow-textarea.input' } %>
-        </div>
+        <%= f.label :message, class: 'label' %>
+        <%= f.text_area :message, rows: 8, cols: 40, required: true, class: 'textarea',
+            placeholder: 'Your message for the Marin Cricket Club',
+            oninput: 'this.style.height = ""; this.style.height = this.scrollHeight + 3 + "px"' %>
       </div>
 
       <div class="field" style="display:none">

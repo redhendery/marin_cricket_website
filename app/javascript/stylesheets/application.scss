@@ -72,6 +72,10 @@ p {
   width: 100%;
 }
 
+.textarea[rows] {
+  height: auto;
+}
+
 // Button Font Weight
 .button {
   font-weight: 500;

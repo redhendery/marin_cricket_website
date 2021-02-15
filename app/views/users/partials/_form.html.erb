@@ -7,7 +7,7 @@
       <div class="field">
         <%= f.label :first_name, class: 'label' %>
         <%= f.text_field :first_name, required: true,
-            class: 'input', type: 'text', placeholder: 'Your Frist Name' %>
+            class: 'input', type: 'text', placeholder: 'Your First Name' %>
       </div>
 
       <div class="field">
@@ -35,36 +35,34 @@
       </div>
     </div>
 
-    <% unless current_page?(signup_url) %>
-      <div class="column is-offset-2">
-        <div class="field">
-          <%= f.label :role, class: 'label' %>
-          <div class="select">
-            <%= f.select :role, ['Batsmen', 'Bowler', 'Wicket Keeper', 'All Rounder'] %>
-          </div>
-        </div>
-
-        <div class="field">
-          <%= f.label :batting_hand, class: 'label' %>
-          <div class="select">
-            <%= f.select :bats, ['Left', 'Right'] %>
-          </div>
-        </div>
-
-        <div class="field">
-          <%= f.label :bowling_hand, class: 'label' %>
-          <div class="select">
-            <%= f.select :bowls, ['Left', 'Right'] %>
-          </div>
-        </div>
-
-        <div class="field">
-          <%= f.label :profile, class: 'label' %>
-          <%= f.text_area :profile, rows: 7, cols: 40, class: 'textarea',
-                            placeholder: 'Tell us a little about yourself or leave this field blank.' %>
+    <div class="column is-offset-2">
+      <div class="field">
+        <%= f.label :role, class: 'label' %>
+        <div class="select">
+          <%= f.select :role, ['Batsmen', 'Bowler', 'Wicket Keeper', 'All Rounder'] %>
         </div>
       </div>
-    <% end %>
+
+      <div class="field">
+        <%= f.label :batting_hand, class: 'label' %>
+        <div class="select">
+          <%= f.select :bats, ['Left', 'Right'] %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :bowling_hand, class: 'label' %>
+        <div class="select">
+          <%= f.select :bowls, ['Left', 'Right'] %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :profile, class: 'label' %>
+        <%= f.text_area :profile, rows: 4, cols: 40, class: 'textarea',
+                          placeholder: 'Tell us a little about yourself or leave this field blank.' %>
+      </div>
+    </div>
   </div>
 
   <div class="field">

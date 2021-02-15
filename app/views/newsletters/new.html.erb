@@ -1,0 +1,28 @@
+<% provide(:title, 'Newsletter Sign Up') %>
+
+<h1 class="title is-1">Newsletter Sign Up</h1>
+
+<p class="has-text-centered">
+  Sign up for our in season newsletter about upcoming games.
+</p>
+<p class="has-text-centered">
+  They go out every Monday morning around 6am PST.
+  <span class="has-text-weight-bold">Turn on your Do Not Disturb!</span>
+</p>
+<hr>
+
+<%= render 'form' %>
+
+<div class="columns is-centered">
+  <div class="column is-6">
+    <p class="is-size-5">
+      <span class="has-text-weight-bold">
+        Want to play games?
+      </span>
+      <%= link_to 'Sign up for a member account instead!', signup_path %>
+    </p>
+    <p>
+      Want to be removed from <%= link_to 'this mailing list', newsletters_remove_path %>?
+    </p>
+  </div>
+</div>

@@ -1,11 +1,19 @@
 <h1 class="title is-1">Welcome to the Marin Cricket Club!</h1>
 <h3 class="subtitle is-3 has-text-centered">The home of Bay Area cricket</h3>
 
-<div class="negative-margin column has-text-centered">
-  <%= link_to 'Create An MCC Member Account', signup_path, class: 'button is-success is-medium' unless logged_in? %>
-</div>
+<% unless logged_in? %>
+  <div class="negative-margin columns has-text-centered">
+    <div class="column">
+      <%= link_to 'Sign Up for Game Newsletter', new_newsletter_path, class: 'button is-link is-medium' %>
+    </div>
+    <div class="column">
+      <%= link_to 'Create An MCC Member Account', signup_path, class: 'button is-success is-medium' %>
+    </div>
+  </div>
+<% end %>
+<hr>
 
-<p class="extra-padding is-size-4 has-text-weight-bold">
+<p class="is-size-4 has-text-weight-bold">
   A message from Marin Cricket Club about Covid-19 and a possible return to play:
 </p>
 

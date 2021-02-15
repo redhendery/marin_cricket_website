@@ -3,9 +3,23 @@
 
 <h1 class="title is-1">Sign Up</h1>
 
-<div class="columns is-centered">
-  <div class="column is-5">
-    <%= render 'users/partials/form' %>
-    <p class="extra-padding is-size-5">Already have an account? <%= link_to 'Log in here', login_path %> instead!</p>
+<%= render 'users/partials/form' %>
+
+<div class="columns extra-padding">
+  <div class="column is-6">
+    <p class="is-size-5">
+      <span class="has-text-weight-bold">
+        Already have an account?
+        <%= link_to 'log in here!', login_path %>
+      </span>
+    </p>
+  </div>
+  <div class="column is-6">
+    <p class="is-size-5 has-text-right">
+      <span class="has-text-weight-bold">
+        Looking for the
+      </span>
+      <%= link_to 'upcoming games newsletter?', new_newsletter_path %>
+    </p>
   </div>
 </div>

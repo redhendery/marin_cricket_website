@@ -33,7 +33,7 @@
       </div>
 
       <div class="field" style="display:none">
-        <%= f.text_field :ham_sandwich, autocomplete: 'off' %>
+        <%= f.text_field :ham_sandwich, autocomplete: 'off', required: false %>
       </div>
 
       <div class="field">
@@ -50,5 +50,5 @@
   </div>
 </div>
 
-<!-- Disables Send Message button for 30 seconds to fight spam -->
+<!-- Disables Send Message button for 30 seconds to fight spam submissions -->
 <%= javascript_pack_tag 'timer' %>

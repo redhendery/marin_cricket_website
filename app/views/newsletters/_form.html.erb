@@ -1,0 +1,41 @@
+<%= form_with model: @newsletter, local: true do |f| %>
+
+  <div class="columns is-centered">
+    <div class="column is-6">
+      <%= render 'shared/error_messages', object: f.object %>
+    </div>
+  </div>
+
+  <div class="columns is-centered">
+    <div class="column is-3">
+      <div class="field">
+        <%= f.label :first_name, class: 'label' %>
+        <%= f.text_field :first_name, required: true,
+            class: 'input', type: 'text', placeholder: 'Your First Name' %>
+      </div>
+    </div>
+
+    <div class="column is-3">
+      <div class="field">
+        <%= f.label :last_name, class: 'label' %>
+        <%= f.text_field :last_name, required: true,
+            class: 'input', type: 'text', placeholder: 'Your Last Name' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns is-centered">
+    <div class="column is-6">
+      <div class="field">
+        <%= f.label :email, class: 'label' %>
+        <%= f.email_field :email, required: true, class: 'input',
+              type: 'email', placeholder: 'Your Email Address' %>
+      </div>
+      <div class="field">
+        <%= f.submit 'Sign Up for Newsletter', class: 'button is-medium is-link is-fullwidth',
+                                              data: { confirm: 'You sure? We WILL send you email!' } %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

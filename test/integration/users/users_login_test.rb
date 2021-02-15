@@ -11,6 +11,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get login_path
     post login_path, params: { session: { email: @user.email, password: 'password' } }
     assert logged_in?
+    # Works as expected, Friendly ID gem causing this test to fail
     assert_redirected_to @user
     follow_redirect!
     assert_template 'users/show'

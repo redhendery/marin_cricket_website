@@ -21,5 +21,4 @@ class Contact < MailForm::Base
       from: %("#{name}" <#{email}>)
     }
   end
-
 end

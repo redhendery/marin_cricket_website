@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  # Newsletter routes
+  resources :newsletters, only: %i[new create]
+  get 'newsletters/remove'
+  delete 'newsletters', to: 'newsletters#destroy'
+
   # Contact Page Routes
   resources :contact, only: %i[index new create]
 

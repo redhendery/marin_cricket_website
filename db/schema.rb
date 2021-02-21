@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_212523) do
     t.string "role", default: "Bowler"
     t.string "bats", default: "Right"
     t.string "bowls", default: "Right"
+    t.boolean "paid", default: false
     t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

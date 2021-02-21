@@ -29,5 +29,10 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
 
   # User Routes, with path as /players
-  resources :users, path: '/players'
+  resources :users, path: '/players' do
+    member do
+      get :make_admin, :remove_admin, :paid, :not_paid,
+                  :activate_account, :deactivate_account
+    end
+  end
 end

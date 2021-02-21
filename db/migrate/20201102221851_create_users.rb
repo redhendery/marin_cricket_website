@@ -12,6 +12,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :role, default: 'Bowler'
       t.string :bats, default: 'Right'
       t.string :bowls, default: 'Right'
+      t.boolean :paid, default: false
       t.boolean :admin, default: false
 
       t.timestamps

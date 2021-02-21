@@ -3,8 +3,11 @@
 # Users Controller, controls User and Admin User actions
 class UsersController < ApplicationController
   before_action :correct_user, only: %i[edit update destroy]
-  before_action :set_user, only: %i[show edit update destroy]
   before_action :logged_in_user, only: %i[edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy make_admin remove_admin
+                                    paid not_paid activate_account deactivate_account]
+  before_action :admin_user, only: %i[make_admin remove_admin paid not_paid
+                                          activate_account deactivate_account]
 
   def index
     @users = User.order(first_name: :asc)
@@ -53,6 +56,42 @@ class UsersController < ApplicationController
     flash[:danger] = "User #{@user.first_name} #{@user.last_name} has been deleted."
   end
 
+  def make_admin
+    @user.update(admin: true)
+    redirect_to users_url
+    flash[:success] = "User #{@user.first_name} #{@user.last_name} now has admin rights."
+  end
+
+  def remove_admin
+    @user.update(admin: false)
+    redirect_to users_url
+    flash[:danger] = "User #{@user.first_name} #{@user.last_name} no longer has admin rights."
+  end
+
+  def paid
+    @user.update(paid: true)
+    redirect_to users_url
+    flash[:success] = "User #{@user.first_name} #{@user.last_name} now has paid their fees."
+  end
+
+  def not_paid
+    @user.update(paid: false)
+    redirect_to users_url
+    flash[:danger] = "User #{@user.first_name} #{@user.last_name} has not paid their fees."
+  end
+
+  def activate_account
+    @user.update(activated: true)
+    redirect_to users_url
+    flash[:success] = "User #{@user.first_name} #{@user.last_name} now has been activated and will receive game emails."
+  end
+
+  def deactivate_account
+    @user.update(activated: false)
+    redirect_to users_url
+    flash[:danger] = "User #{@user.first_name} #{@user.last_name} now has been deactivated and will no longer receive game emails."
+  end
+
   private
 
   def user_params
@@ -68,4 +107,9 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     redirect_to(root_url) unless current_user?(@user) || admin_logged_in?
   end
+
+  def admin_user
+    redirect_to root_url unless admin_logged_in?
+  end
+
 end

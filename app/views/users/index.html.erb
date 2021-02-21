@@ -1,0 +1,14 @@
+<%= provide(:title, 'All Players') %>
+
+<% if admin_logged_in? %>
+  <div class="columns is-centered">
+    <div class="column is-5">
+      <%= link_to 'Create New User', new_user_path, class: 'button is-medium is-success is-fullwidth' %>
+    </div>
+  </div>
+<% end %>
+
+<h1 class="title is-1">All Marin Cricket Club Players</h1>
+<hr>
+
+<%= render @users %>

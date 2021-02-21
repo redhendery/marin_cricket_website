@@ -1,0 +1,42 @@
+<ul>
+  <div class="columns is-vcentered">
+    <div class="column is-1">
+      Image Here
+    </div>
+    <div class="column is-5">
+      <%= link_to user do %>
+        <p class="is-size-4 has-text-weight-bold">
+          <%= user.first_name %>
+          <%= user.last_name %>
+        </p>
+      <% end %>
+      <p class="negative-margin">
+        <span class="has-text-weight-medium">Role:</span> <%= user.role %>
+      </p>
+      <p class="negative-margin">
+        <span class="has-text-weight-medium">Bats:</span> <%= user.bats %>
+      </p>
+      <p class="negative-margin">
+        <span class="has-text-weight-medium">Bowls:</span> <%= user.bowls %>
+      </p>
+      <% if admin_logged_in? %>
+        <p class="negative-margin">
+          <span class="has-text-weight-medium">
+            Email:
+          </span>
+          <%= mail_to user.email %>
+        </p>
+      <% end %>
+    </div>
+
+    <% if admin_logged_in? %>
+      <%= render 'users/partials/admin_buttons', user: user %>
+    <% else %>
+      <div class="column is-offset-3">
+        <%= link_to 'View Profile', user_path(user), class: 'button is-link is-fullwidth is-large' %>
+      </div>
+    <% end %>
+
+  </div>
+</ul>
+<hr>

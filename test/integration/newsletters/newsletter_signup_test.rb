@@ -3,7 +3,6 @@
 require 'test_helper'
 
 class NewslettersSignupTest < ActionDispatch::IntegrationTest
-
   # Newsletter sign up rejections
   test 'INvalid newsletter signup' do
     get new_newsletter_path

@@ -1,6 +1,10 @@
 <% provide(:title, @user.first_name + ' ' + @user.last_name) %>
 
-<%= render 'users/partials/user_buttons' if @user == current_user %>
+<% if @user == current_user %>
+  <%= render 'users/partials/user_buttons' unless admin_logged_in? %>
+<% end %>
+
+<%= render 'users/partials/admin_buttons', user: @user if admin_logged_in? %>
 
 <div class="columns is-vcentered">
   <div class="column">

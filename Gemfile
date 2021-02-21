@@ -23,7 +23,7 @@ end
 
 group :development do
   gem 'brakeman'
-  # gem 'bullet'
+  gem 'bullet', '~> 6.1.0'
   gem 'listen', '~> 3.2'
   gem 'rubocop'
   gem 'rubocop-minitest', require: false

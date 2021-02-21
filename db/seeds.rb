@@ -17,6 +17,7 @@ users = User.create([{
   bats: 'Right',
   bowls: 'Left',
   profile: 'I am Steve from Venezuela.',
+  paid: true,
   activated: true,
   activated_at: Time.zone.now
 }, {
@@ -30,6 +31,7 @@ users = User.create([{
   bats: 'Right',
   bowls: 'Left',
   profile: 'I am Mike and I am a lion tamer.',
+  paid: false,
   activated: true,
   activated_at: Time.zone.now
 }])

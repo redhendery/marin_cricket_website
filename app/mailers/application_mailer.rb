@@ -2,6 +2,6 @@
 
 # Mailer defaults for application
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@marincricketclub.com'
+  default from: 'mccmailer@marincricketclub.com'
   layout 'mailer'
 end

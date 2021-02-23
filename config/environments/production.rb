@@ -68,8 +68,10 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'https://marincricketclub.com/'
-  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_url_options = {
+    host: 'marincricketclub.com',
+    protocol: 'https'
+  }
   ActionMailer::Base.smtp_settings = {
     user_name: 'apikey',
     password: ENV['SENDGRID_API_KEY'],

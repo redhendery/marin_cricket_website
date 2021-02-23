@@ -10,7 +10,7 @@ class UsersController < ApplicationController
                                           activate_account deactivate_account]
 
   def index
-    @users = User.order(first_name: :asc)
+    @users = User.where(activated: true).order(first_name: :asc)
   end
 
   def new

@@ -35,7 +35,17 @@
       </div>
 
     <% end %>
-    <p class="is-size-5 extra-padding">Not a member? <%= link_to 'Sign up now!', signup_path %></p>
-    <p>Looking for the <%= link_to 'upcoming games newsletter?', new_newsletter_path %></p>
+    <p class="is-size-5 extra-padding">
+      <span class="has-text-weight-bold">
+        Not a member?
+      </span>
+      <%= link_to 'Sign up now!', signup_path %>
+    </p>
+    <p>
+      <span class="has-text-weight-medium">
+        Looking for the 
+      </span>
+      <%= link_to 'upcoming games newsletter?', new_newsletter_path %>
+    </p>
   </div>
 </div>

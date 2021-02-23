@@ -25,16 +25,17 @@
   </div>
 
   <div class="column">
-    <%= link_to 'Delete User', user, method: :delete,
-        data: { confirm: "You sure brah #{user.first_name} #{user.last_name} will be PERMANENTLY DELETED from the database." },
-        class: 'button is-danger is-fullwidth' %>
+    <%= link_to 'Delete User', user, method: :delete, class: 'button is-danger is-fullwidth',
+        data: { confirm: "You sure brah? #{user.first_name} #{user.last_name} will be permenantly deleted." } %>
   </div>
 
   <div class="column">
     <% if user.admin? %>
-      <%= link_to 'Remove Admin', remove_admin_user_path(user), class: 'button is-info is-fullwidth' %>
+      <%= link_to 'Remove Admin', remove_admin_user_path(user), class: 'button is-info is-fullwidth',
+                    data: { confirm: "#{user.first_name} #{user.last_name} will lose admin privledges."} %>
     <% else %>
-      <%= link_to 'Make Admin', make_admin_user_path(user), class: 'button is-success is-fullwidth' %>
+      <%= link_to 'Make Admin', make_admin_user_path(user), class: 'button is-success is-fullwidth',
+                    data: { confirm: "#{user.first_name} #{user.last_name} will be given admin privledges."} %>
     <% end %>
   </div>
 

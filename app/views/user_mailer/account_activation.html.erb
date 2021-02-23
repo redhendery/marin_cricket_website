@@ -4,7 +4,7 @@
 
 <p>
   Thank you for signing up to play for the Marin Cricket Club! You must activate your account
-  in order to make yourself available for either Socials or NCCA League Cricket games.
+  if you want to sign up to play Socials or NCCA League Cricket games.
 </p>
 
-<%= link_to 'Activate', edit_account_activation_url(@user.activation_token, email: @user.email) %>
+<%= link_to 'Activate your account', edit_account_activation_url(@user.activation_token, email: @user.email) %>

@@ -2,12 +2,12 @@
 <h3 class="subtitle is-3 has-text-centered">The home of Bay Area cricket</h3>
 
 <% unless logged_in? %>
-  <div class="negative-margin columns has-text-centered">
-    <div class="column">
-      <%= link_to 'Sign Up for Game Newsletter', new_newsletter_path, class: 'button is-link is-medium' %>
+  <div class="columns buttons are-medium is-justify-content-space-around">
+    <div class="column is-4">
+      <%= link_to 'Sign Up for Game Newsletter', new_newsletter_path, class: 'button is-link is-fullwidth' %>
     </div>
-    <div class="column">
-      <%= link_to 'Create An MCC Member Account', signup_path, class: 'button is-success is-medium' %>
+    <div class="column is-4">
+      <%= link_to 'Create An MCC Member Account', signup_path, class: 'button is-success is-fullwidth' %>
     </div>
   </div>
 <% end %>

@@ -7,4 +7,4 @@
   if you want to sign up to play Socials or NCCA League Cricket games.
 </p>
 
-<%= link_to 'Activate your account', edit_account_activation_url(@user.activation_token, email: @user.email, host: 'marincricketclub.com') %>
+<%= link_to 'Activate your account', edit_account_activation_url(@user.activation_token, email: @user.email) %>

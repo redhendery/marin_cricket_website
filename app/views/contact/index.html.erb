@@ -37,7 +37,12 @@
       </div>
 
       <div class="field">
-        <%= f.submit 'Send Message', id: 'button', class: 'button is-medium is-link is-fullwidth', disabled: true %>
+        <%= flash[:recaptcha_error] %>
+        <%= recaptcha_tags %>
+      </div>
+
+      <div class="field">
+        <%= f.submit 'Send Message', id: 'button', class: 'button is-medium is-link is-fullwidth' %>
       </div>
 
     <% end %>
@@ -49,6 +54,3 @@
     </p>
   </div>
 </div>
-
-<!-- Disables Send Message button for 30 seconds to fight spam submissions -->
-<%= javascript_pack_tag 'timer' %>

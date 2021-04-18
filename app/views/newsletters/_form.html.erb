@@ -31,6 +31,14 @@
         <%= f.email_field :email, required: true, class: 'input',
               type: 'email', placeholder: 'Your Email Address' %>
       </div>
+
+      <% unless admin_logged_in? %>
+        <div class="field">
+          <%= flash[:recaptcha_error] %>
+          <%= recaptcha_tags %>
+        </div>
+      <% end %>
+
       <div class="field">
         <%= f.submit 'Sign Up for Newsletter', class: 'button is-medium is-link is-fullwidth',
                                               data: { confirm: 'You sure? We WILL send you email!' } %>

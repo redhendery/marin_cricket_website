@@ -1,3 +1,14 @@
+<% unless current_page?(users_path) %>
+  <div class="columns buttons are-medium is-justify-content-space-around">
+    <div class="column is-4">
+      <%= link_to 'Add Game Newsletter', new_newsletter_path, class: 'button is-link is-fullwidth' %>
+    </div>
+    <div class="column is-4">
+      <%= link_to 'Add Member Account', signup_path, class: 'button is-success is-fullwidth' %>
+    </div>
+  </div>
+<% end %>
+
 <div class="columns is-multiline is-vcentered buttons are-medium">
 
   <div class="column is-4">

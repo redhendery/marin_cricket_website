@@ -7,12 +7,14 @@ class NewslettersController < ApplicationController
 
   def create
     @newsletter = Newsletter.new(newsletter_params)
-    if @user = User.find_by(email: @newsletter.email)
-      redirect_to root_url
-      flash[:info] = "#{@user.first_name} you already receive these emails because you have a member account."
-    elsif @newsletter.save
-      redirect_to root_url
-      flash[:success] = "Thank you #{@newsletter.first_name} for signing up to the game notifications newsletter."
+    if verify_recaptcha(model: @newsletter)
+      if @user = User.find_by(email: @newsletter.email)
+        redirect_to root_url
+        flash[:info] = "#{@user.first_name} you already receive these emails because you have a member account."
+      else @newsletter.save
+        redirect_to root_url
+        flash[:success] = "Thank you #{@newsletter.first_name} for signing up to the game notifications newsletter."
+      end
     else
       render 'new'
     end

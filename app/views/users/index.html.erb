@@ -1,9 +1,12 @@
 <%= provide(:title, 'All Players') %>
 
 <% if admin_logged_in? %>
-  <div class="columns is-centered">
-    <div class="column is-5">
-      <%= link_to 'Create New User', new_user_path, class: 'button is-medium is-success is-fullwidth' %>
+  <div class="columns buttons are-medium is-justify-content-space-around">
+    <div class="column is-4">
+      <%= link_to 'Add to Newsletter', new_newsletter_path, class: 'button is-link is-fullwidth' %>
+    </div>
+    <div class="column is-4">
+      <%= link_to 'Add Member Account', signup_path, class: 'button is-success is-fullwidth' %>
     </div>
   </div>
 <% end %>

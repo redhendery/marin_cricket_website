@@ -66,6 +66,11 @@
   </div>
 
   <div class="field">
+    <%= flash[:recaptcha_error] %>
+    <%= recaptcha_tags %>
+  </div>
+
+  <div class="field">
     <%= f.submit yield(:button_text), class: 'button is-medium is-link is-fullwidth' %>
   </div>
 <% end %>

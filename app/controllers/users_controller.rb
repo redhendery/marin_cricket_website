@@ -19,18 +19,20 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      if admin_logged_in?
-        @user.update(activated: true)
-        flash[:success] =
-          "You have created and activated a user with the name #{@user.first_name} #{@user.last_name}"
-        redirect_to @user
-      else
-        @user.send_activation_email
-        flash[:info] = 'Please check your email to activate your account.
-                        The email may take several minutes to come through,
-                        be sure to check your spam folder as well.'
-        redirect_to root_url
+    if verify_recaptcha(model: @user)
+      if @user.save
+        if admin_logged_in?
+          @user.update(activated: true)
+          flash[:success] =
+            "You have created and activated a user with the name #{@user.first_name} #{@user.last_name}"
+          redirect_to @user
+        else
+          @user.send_activation_email
+          flash[:info] = 'Please check your email to activate your account.
+                          The email may take several minutes to come through,
+                          be sure to check your spam folder as well.'
+          redirect_to root_url
+        end
       end
     else
       render 'new'

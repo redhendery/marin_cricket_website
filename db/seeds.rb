@@ -49,3 +49,35 @@ newsletters = Newsletter.create([{
 }])
 
 p "added #{Newsletter.count} newsletters"
+
+teams = Team.create([{
+  name: 'Marin One',
+  about: 'Competitive team playing in the NCCA league competition.',
+  home_field: 'Piper Park, Larkspur',
+  abbreviation: 'mno'
+}, {
+  name: 'Marin Two',
+  about: 'Competitive team playing in the NCCA league competition.',
+  home_field: 'Piper Park, Larkspur',
+  abbreviation: 'MnT'
+}, {
+  name: 'Marin Socials',
+  about: "Social cricket at it's finest!",
+  home_field: 'Piper Park, Larkspur',
+  abbreviation: 'MNS'
+}])
+
+7.times do |n|
+  name = Faker::Sports::Basketball.unique.team
+  about = Faker::ChuckNorris.fact
+  home_field = ['Fremont Park', 'Berkeley Oval', 'Magnusson Park']
+  abbreviation = 'abc'
+  Team.create!(
+    name: name,
+    about: about,
+    home_field: home_field.sample,
+    abbreviation: abbreviation
+  )
+end
+
+p "added #{Team.count} teams"

@@ -1,0 +1,8 @@
+<%= provide(:title, 'Edit Team') %>
+<% provide(:button_text, 'Save Team Changes') %>
+
+<%= render 'teams/partials/admin_buttons' if admin_logged_in? %>
+
+<h1 class="title is-1">Edit Team</h1>
+
+<%= render 'teams/partials/from' %>

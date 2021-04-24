@@ -1,0 +1,18 @@
+<div class="columns buttons are-medium">
+  <% unless current_page?(edit_team_path) %>
+    <div class="column">
+      <%= link_to 'Edit This Team', edit_team_path(@team),
+                    class: 'button is-warning is-fullwidth' %>
+    </div>
+  <% end %>
+  <div class="column">
+    <%= link_to 'Create New Team', new_team_path,
+                  class: 'button is-success is-fullwidth' %>
+  </div>
+  <div class="column">
+    <%= link_to 'Delete This Team', @team, method: :delete,
+                data: { confirm: 'Are you sure?! ' + @team.name +
+                ' will be PERMANENTLY DELETED from the database.'},
+                  class: 'button is-danger is-fullwidth' %>
+  </div>
+</div>

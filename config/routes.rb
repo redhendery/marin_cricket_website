@@ -35,4 +35,6 @@ Rails.application.routes.draw do
                   :activate_account, :deactivate_account
     end
   end
+
+  resources :teams
 end

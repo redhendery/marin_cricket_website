@@ -1,0 +1,44 @@
+<%= provide(:title, 'Teams') %>
+
+<% if admin_logged_in? %>
+  <div class="columns is-centered">
+    <div class="column is-5">
+      <%= link_to 'Create Team', new_team_path, class: 'button is-medium is-success is-fullwidth' %>
+    </div>
+  </div>
+<% end %>
+
+<h1 class="title is-1">Marin Teams</h1>
+<hr>
+<% @teams.each do |team| %>
+  <ul>
+    <div class="columns is-vcentered buttons are-medium">
+      <div class="column is-5">
+        <h3 class="title is-3"><%= team.name %></h3>
+        <p style="margin-top:-12px;"><%= team.about %></p>
+      </div>
+      <% if admin_logged_in? %>
+        <div class="column">
+          <%= link_to 'Learn More!', team_path(team),
+              class: 'button is-link is-fullwidth' %>
+        </div>
+        <div class="column">
+          <%= link_to 'Edit Team', edit_team_path(team),
+                  class: 'button is-warning is-fullwidth' %>
+        </div>
+        <div class="column">
+          <%= link_to 'Delete Team', team, method: :delete,
+              data: { confirm: 'Are you sure?! ' + team.name +
+              ' will be PERMANENTLY DELETED from the database.'},
+                          class: 'button is-danger is-fullwidth' %>
+        </div>
+      <% else %>
+        <div class="column is-offset-4">
+          <%= link_to 'Learn More!', team_path(team),
+              class: 'button is-link is-fullwidth' %>
+        </div>
+      <% end %>
+    </div>
+  </ul>
+  <hr>
+<% end %>

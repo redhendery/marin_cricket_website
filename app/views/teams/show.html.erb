@@ -1,0 +1,15 @@
+<% provide(:title, @team.name) %>
+
+<%= render 'teams/partials/admin_buttons' if admin_logged_in? %>
+
+<h2 class="title is-1 has-text-centered">
+  <%= @team.name %> (<%= @team.abbreviation %>)
+</h2>
+
+<p class="has-text-weight-semibold">About <%= @team.name %>:</p>
+<p class="negative-margin"><%= @team.about %></p>
+
+<p class="has-text-weight-semibold">Home Field:</p>
+<p class="negative-margin">
+  <%= @team.home_field %>, <%= link_to 'Directions', "https://www.google.com/maps?q=#{@team.home_field}", target: 'blank' %>
+</p>

@@ -16,5 +16,5 @@ socials:
   date: date
   home_team_id: 3
   away_team_id: 6
-  start_time: start_time
+  start_time: '10:30'
   field: Piper Park

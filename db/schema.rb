@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(version: 2021_04_25_144013) do
     t.bigint "away_team_id"
     t.bigint "home_team_id"
     t.string "opponent"
-    t.time "start_time", default: "2000-01-01 10:30:00"
-    t.string "field", default: "Piper Park, Larkspur"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"

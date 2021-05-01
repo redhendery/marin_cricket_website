@@ -15,12 +15,20 @@
 
 <p>
   <span class="has-text-weight-semibold">Players Arrive By:</span>
-  <%= (@schedule.start_time - 30.minutes).strftime('%H:%M %P') %>
+  <% if @schedule.home_team.name === 'Marin Socials' %>
+    10:00am
+  <% else %>
+    10:30am
+  <% end %>
 </p>
 
 <p>
   <span class="has-text-weight-semibold">Match Start Time:</span>
-  <%= @schedule.start_time.strftime('%H:%M %P') %>
+  <% if @schedule.home_team.name === 'Marin Socials' %>
+    10:30am
+  <% else %>
+    11:00am
+  <% end %>
 </p>
 
 <p>

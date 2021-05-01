@@ -2,19 +2,13 @@ ones:
   home_team_id: 1
   away_team_id: 4
   date: Date.today
-  start_time: '10:45'
-  field: Piper Park
 
 twos:
   home_team_id: 2
   away_team_id: 5
   date: Date.today + 1.week
-  start_time: '10:45'
-  field: Piper Park
 
 socials:
   date: date
   home_team_id: 3
   away_team_id: 6
-  start_time: '10:30'
-  field: Piper Park

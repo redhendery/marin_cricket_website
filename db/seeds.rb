@@ -86,34 +86,24 @@ schedule = Schedule.create([{
   date: Date.today + 2.weeks,
   home_team_id: 1,
   away_team_id: 4,
-  start_time: '10:30',
-  field: 'Piper Park, Larkspur',
 }, {
   date: Date.today + 1.week,
   home_team_id: 2,
   away_team_id: 5,
-  start_time: '10:30',
-  field: 'Piper Park, Larkspur',
 }, {
   date: Date.today,
   home_team_id: 3,
   away_team_id: 6,
-  start_time: '10:30',
-  field: 'Piper Park, Larkspur',
 }])
 
 77.times do |n|
   date = Faker::Date.between(from: 2.months.from_now, to: 8.months.from_now)
   home_team_id = rand(1..10)
   away_team_id = rand(1..10)
-  start_time = '10:30'
-  field = ['Piper Park, Larkspur', 'Fremont Park, Fremont', 'Berkeley Oval']
   Schedule.create!(
     date: date,
     home_team_id: home_team_id,
     away_team_id: away_team_id,
-    start_time: start_time,
-    field: field.sample
   )
 end
 

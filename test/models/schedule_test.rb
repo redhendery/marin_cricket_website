@@ -6,7 +6,6 @@ class ScheduleTest < ActiveSupport::TestCase
       date: Date.today + 2.weeks,
       home_team_id: 3,
       away_team_id: 5,
-      start_time: '10:45',
       opponent: 'over Appealing All stars',
     )
   end
@@ -23,11 +22,6 @@ class ScheduleTest < ActiveSupport::TestCase
 
   test 'away team id must be present' do
     @schedule.away_team_id = nil
-    assert_not @schedule.valid?
-  end
-
-  test 'start_time must be present' do
-    @schedule.start_time = nil
     assert_not @schedule.valid?
   end
 

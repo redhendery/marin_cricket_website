@@ -56,10 +56,10 @@
             <%= mns.date.strftime('%A, %B %d') %>
           </td>
           <td>
-            <%= mns.field %>
+            <%= mns.home_team.home_field %>
           </td>
           <td>
-            <%= link_to 'Directions', "https://www.google.com/maps?q=#{mns.field}", target: 'blank' %>
+            <%= link_to 'Directions', "https://www.google.com/maps?q=#{mns.home_team.home_field}", target: 'blank' %>
           </td>
           <% if admin_logged_in? %>
             <td>

@@ -56,10 +56,10 @@
             <%= mno.date.strftime('%A, %B %d') %>
           </td>
           <td>
-            <%= mno.field %>
+            <%= mno.home_team.home_field %>
           </td>
           <td>
-            <%= link_to 'Directions', "https://www.google.com/maps?q=#{mno.field}", target: 'blank' %>
+            <%= link_to 'Directions', "https://www.google.com/maps?q=#{mno.home_team.home_field}", target: 'blank' %>
           </td>
           <% if admin_logged_in? %>
             <td>

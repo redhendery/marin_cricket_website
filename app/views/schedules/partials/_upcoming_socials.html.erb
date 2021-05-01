@@ -11,9 +11,11 @@
           <%= mns.home_team.name %>
           vs
           <%= mns.away_team.name %>
-        <p style="margin-top:-12px;">
+        </p>
+        <p class="negative-margin">
           <span class="has-text-weight-bold">Where: </span>
-          <%= mns.field %>, <%= link_to 'Directions', "https://www.google.com/maps?q=#{mns.field}", target: 'blank' %>
+          <%= mns.home_team.home_field %>,
+          <%= link_to 'Directions', "https://www.google.com/maps?q=#{mns.home_team.home_field}", target: 'blank' %>
         </p>
         <p style="margin-top:-18px;">
           <span class="has-text-weight-bold">When: </span>

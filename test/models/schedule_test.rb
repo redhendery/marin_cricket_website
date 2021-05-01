@@ -8,7 +8,6 @@ class ScheduleTest < ActiveSupport::TestCase
       away_team_id: 5,
       start_time: '10:45',
       opponent: 'over Appealing All stars',
-      field: 'piper park'
     )
   end
 
@@ -44,21 +43,6 @@ class ScheduleTest < ActiveSupport::TestCase
 
   test 'opponent length not to long' do
     @schedule.opponent = 'a' * 51
-    assert_not @schedule.valid?
-  end
-
-  test 'field must be present' do
-    @schedule.field = nil
-    assert_not @schedule.valid?
-  end
-
-  test 'field length not to short' do
-    @schedule.field = 'a' * 2
-    assert_not @schedule.valid?
-  end
-
-  test 'field length not to long' do
-    @schedule.field = 'a' * 51
     assert_not @schedule.valid?
   end
 end

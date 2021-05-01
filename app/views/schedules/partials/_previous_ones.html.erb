@@ -12,15 +12,15 @@
           vs
           <%= mno.away_team.name %>
         </p>
-        <p>
+        <p class="negative-margin">
           <span class="has-text-weight-bold">Where: </span>
-          <%= mno.field %>
+          <%= mno.home_team.home_field %>
         </p>
-        <p>
+        <p style="margin-top:-18px;">
           <span class="has-text-weight-bold">When: </span>
           <%= mno.date.strftime('%A, %d %B') %>
         </p>
-        <p>
+        <p style="margin-top:-18px;">
           <span class="has-text-weight-bold">Time: </span>
           <%= mno.start_time.strftime('%H:%M %P') %>
         </p>

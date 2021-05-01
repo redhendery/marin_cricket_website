@@ -12,15 +12,16 @@
           vs
           <%= mnt.away_team.name %>
         </p>
-        <p>
+        <p class="negative-margin">
           <span class="has-text-weight-bold">Where: </span>
-          <%= mnt.field %>, <%= link_to 'Directions', "https://www.google.com/maps?q=#{mnt.field}", target: 'blank' %>
+          <%= mnt.home_team.home_field %>,
+          <%= link_to 'Directions', "https://www.google.com/maps?q=#{mnt.home_team.home_field}", target: 'blank' %>
         </p>
-        <p>
+        <p style="margin-top:-18px;">
           <span class="has-text-weight-bold">When: </span>
           <%= mnt.date.strftime('%A, %d %B') %>
         </p>
-        <p>
+        <p style="margin-top:-18px;">
           <span class="has-text-weight-bold">Time: </span>
           <%= mnt.start_time.strftime('%H:%M %P') %>
         </p>

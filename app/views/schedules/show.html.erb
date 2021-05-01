@@ -24,8 +24,8 @@
 </p>
 
 <p>
-  <span class="has-text-weight-semibold">Where:</span> <%= @schedule.field %>,
-  <%= link_to 'Directions', "https://www.google.com/maps?q=#{@schedule.field}", target: 'blank' %>
+  <span class="has-text-weight-semibold">Where:</span> <%= @schedule.home_team.home_field %>,
+  <%= link_to 'Directions', "https://www.google.com/maps?q=#{@schedule.home_team.home_field}", target: 'blank' %>
 </p>
 
 <p>

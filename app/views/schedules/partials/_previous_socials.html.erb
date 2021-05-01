@@ -11,15 +11,15 @@
           <%= mns.home_team.name %>
           vs
           <%= mns.away_team.name %>
-        <p>
+        <p class="negative-margin">
           <span class="has-text-weight-bold">Where: </span>
-          <%= mns.field %>
+          <%= mns.home_team.home_field %>
         </p>
-        <p>
+        <p style="margin-top:-18px;">
           <span class="has-text-weight-bold">When: </span>
           <%= mns.date.strftime('%A, %d %B') %>
         </p>
-        <p>
+        <p style="margin-top:-18px;">
           <span class="has-text-weight-bold">Time: </span>
           <%= mns.start_time.strftime('%H:%M %P') %>
         </p>

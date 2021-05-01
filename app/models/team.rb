@@ -5,8 +5,8 @@ class Team < ApplicationRecord
   before_save :titleize_team_name, :upcase_abbreviation, :titleize_home_field
 
   validates :home_field, presence: true, length: { minimum: 3, maximum: 50 }
-  validates :abbreviation, presence: true, uniqueness: true, length: { is: 3 }
   validates :name, presence: true, uniqueness: true, length: { minimum: 3, maximum: 50 }
+  validates :abbreviation, presence: true, uniqueness: true, length: { minimum: 3, maximum: 50 }
 
   private
 

@@ -37,4 +37,9 @@ Rails.application.routes.draw do
   end
 
   resources :teams
+  resources :schedules do
+    collection do
+      get :ones, :twos, :socials
+    end
+  end
 end

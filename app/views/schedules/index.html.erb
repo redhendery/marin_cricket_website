@@ -1,0 +1,78 @@
+<%= provide(:title, 'Schedules') %>
+
+<%= render 'schedules/partials/create_button' if admin_logged_in? %>
+
+<h1 class="title is-1">Upcoming Games</h1>
+
+<div class="columns is-vcentered">
+  <div class="column">
+    <h6 class="title is-5 has-text-centered">
+      <%= link_to 'Marin One Full Schedule', ones_schedules_path %>
+    </h6>
+    <% if @mno_next.blank? %>
+      <%= render 'schedules/partials/bye' %>
+    <% else %>
+      <%= render 'schedules/partials/upcoming_ones' %>
+    <% end %>
+  </div>
+
+  <div class="column">
+    <h6 class="title is-5 has-text-centered">
+      <%= link_to 'Marin Two Full Schedule', twos_schedules_path %>
+    </h6>
+    <% if @mnt_next.blank? %>
+      <%= render 'schedules/partials/bye' %>
+    <% else %>
+      <%= render 'schedules/partials/upcoming_twos' %>
+    <% end %>
+  </div>
+
+  <div class="column">
+    <h6 class="title is-5 has-text-centered">
+      <%= link_to 'Marin Socials Full Schedule', socials_schedules_path %>
+    </h6>
+    <% if @mns_next.blank? %>
+      <%= render 'schedules/partials/bye' %>
+    <% else %>
+      <%= render 'schedules/partials/upcoming_socials' %>
+    <% end %>
+  </div>
+</div>
+
+<br>
+<h1 class="title is-1">Previous Game Results</h1>
+
+<div class="columns">
+  <div class="column">
+    <h6 class="title is-5 has-text-centered">
+      <%= link_to 'Marin One Full Schedule', ones_schedules_path %>
+    </h6>
+    <% if @mno_last.blank? %>
+      <%= render 'schedules/partials/bye' %>
+    <% else %>
+      <%= render 'schedules/partials/previous_ones' %>
+    <% end %>
+  </div>
+
+  <div class="column">
+    <h6 class="title is-5 has-text-centered">
+      <%= link_to 'Marin Two Full Schedule', twos_schedules_path %>
+    </h6>
+    <% if @mnt_last.blank? %>
+      <%= render 'schedules/partials/bye' %>
+    <% else %>
+      <%= render 'schedules/partials/previous_twos' %>
+    <% end %>
+  </div>
+
+  <div class="column">
+    <h6 class="title is-5 has-text-centered">
+      <%= link_to 'Marin Socials Full Schedule', socials_schedules_path %>
+    </h6>
+    <% if @mns_last.blank? %>
+      <%= render 'schedules/partials/bye' %>
+    <% else %>
+      <%= render 'schedules/partials/previous_socials' %>
+    <% end %>
+  </div>
+</div>

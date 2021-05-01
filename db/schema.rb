@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_24_153229) do
+ActiveRecord::Schema.define(version: 2021_04_25_144013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 2021_04_24_153229) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.date "date"
+    t.bigint "away_team_id"
+    t.bigint "home_team_id"
+    t.string "opponent"
+    t.time "start_time", default: "2000-01-01 10:30:00"
+    t.string "field", default: "Piper Park, Larkspur"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_schedules_on_slug", unique: true
   end
 
   create_table "teams", force: :cascade do |t|

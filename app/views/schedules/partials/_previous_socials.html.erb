@@ -1,0 +1,43 @@
+<% @mns_last.each do |mns| %>
+  <div class="card no-padding">
+    <header class="card-header">
+      <h6 class="card-header-title is-centered">
+        Marin Socials (MNS)
+      </h6>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        <p class="subtitle is-5 has-text-weight-bold has-text-centered">
+          <%= mns.home_team.name %>
+          vs
+          <%= mns.away_team.name %>
+        <p>
+          <span class="has-text-weight-bold">Where: </span>
+          <%= mns.field %>
+        </p>
+        <p>
+          <span class="has-text-weight-bold">When: </span>
+          <%= mns.date.strftime('%A, %d %B') %>
+        </p>
+        <p>
+          <span class="has-text-weight-bold">Time: </span>
+          <%= mns.start_time.strftime('%H:%M %P') %>
+        </p>
+      </div>
+    </div>
+    <footer class="card-footer">
+       <%= link_to 'Game Details', schedule_path(mns), class: 'card-footer-item has-text-weight-bold' %>
+    </footer>
+    <% if admin_logged_in? %>
+      <footer class="card-footer">
+
+            <%= link_to 'Edit Game', edit_schedule_path(mns),
+                  class: 'button is-medium is-warning card-footer-item' %>
+
+            <%= link_to 'Delete Game', mns, method: :delete, data:
+                { confirm: 'You sure brah? This game will be PERMANENTLY DELETED from the database.'},
+                                                  class: 'button is-medium is-danger card-footer-item' %>
+      </footer>
+    <% end %>
+  </div>
+<% end %>

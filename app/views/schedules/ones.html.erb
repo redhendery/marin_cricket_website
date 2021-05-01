@@ -1,0 +1,72 @@
+<%= render 'schedules/partials/create_button' if admin_logged_in? %>
+
+<h1 class="title is-1">Marin One Full Schedule for <%= Date.today.year %></h1>
+
+<div class="table-container">
+  <table class="table is-hoverable is-fullwidth">
+    <thead>
+      <tr>
+        <th>
+          <abbr title="Home">Home Team</abbr>
+        </th>
+        <th>
+          <abbr title="Away">vs.</abbr>
+        </th>
+        <th>
+          <abbr title="Away">Away Team</abbr>
+        </th>
+        <th>
+          <abbr title="Date">Date</abbr>
+        </th>
+        <th>
+          <abbr title="Loc">Location</abbr>
+        </th>
+        <th>
+          <abbr title="Dir">Directions</abbr>
+        </th>
+        <% if admin_logged_in? %>
+          <th>
+            <abbr title="Edit">Edit</abbr>
+          </th>
+          <th>
+            <abbr title="Delete">Delete</abbr>
+          </th>
+        <% end %>
+      </tr>
+    </thead>
+    <% @mno.each do |mno| %>
+      <tbody>
+        <tr>
+          <td>
+            <%= mno.home_team.name %>
+          </td>
+          <td>
+            vs.
+          </td>
+          <td>
+            <%= mno.away_team.name %>
+          </td>
+          <td>
+            <%= mno.date.strftime('%A, %B %d') %>
+          </td>
+          <td>
+            <%= mno.field %>
+          </td>
+          <td>
+            <%= link_to 'Directions', "https://www.google.com/maps?q=#{mno.field}", target: 'blank' %>
+          </td>
+          <% if admin_logged_in? %>
+            <td>
+              <%= link_to 'Edit Game', edit_schedule_path(mno), class: 'button is-small is-warning is-fullwidth' %>
+            </td>
+            <td>
+              <%= link_to 'Delete Game', mno, method: :delete,
+                  data: { confirm: 'You sure brah? This game will be PERMANENTLY DELETED from the database.'},
+                                                              class: 'button is-small is-danger is-fullwidth' %>
+            </td>
+          <% end %>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>

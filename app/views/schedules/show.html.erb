@@ -1,0 +1,34 @@
+<% provide(:title, @schedule.home_team.abbreviation + ' vs ' + @schedule.away_team.abbreviation) %>
+
+<%= render 'schedules/partials/admin_buttons' if admin_logged_in? %>
+
+<h2 class="title is-2">
+  <%= @schedule.home_team.name %> (<%= @schedule.home_team.abbreviation %>)
+  vs
+  <%= @schedule.away_team.name %> (<%= @schedule.away_team.abbreviation %>)
+</h2>
+
+<p>
+  <span class="has-text-weight-semibold">Match Date:</span>
+  <%= @schedule.date.strftime('%A, %B %d') %>
+</p>
+
+<p>
+  <span class="has-text-weight-semibold">Players Arrive By:</span>
+  <%= (@schedule.start_time - 30.minutes).strftime('%H:%M %P') %>
+</p>
+
+<p>
+  <span class="has-text-weight-semibold">Match Start Time:</span>
+  <%= @schedule.start_time.strftime('%H:%M %P') %>
+</p>
+
+<p>
+  <span class="has-text-weight-semibold">Where:</span> <%= @schedule.field %>,
+  <%= link_to 'Directions', "https://www.google.com/maps?q=#{@schedule.field}", target: 'blank' %>
+</p>
+
+<p>
+  <span class="has-text-weight-semibold">Match Fee for Marin players:</span>
+  $20 per player
+</p>

@@ -7,6 +7,9 @@
     <thead>
       <tr>
         <th>
+          <abbr title="Game">Game No.</abbr>
+        </th>
+        <th>
           <abbr title="Home">Home Team</abbr>
         </th>
         <th>
@@ -34,9 +37,12 @@
         <% end %>
       </tr>
     </thead>
-    <% @mnt.each do |mnt| %>
+    <% @mnt.each_with_index do |mnt, index| %>
       <tbody>
         <tr>
+          <td>
+            <%= index + 1 %>
+          </td>
           <td>
             <%= mnt.home_team.name %>
           </td>

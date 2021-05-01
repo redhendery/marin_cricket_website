@@ -78,17 +78,20 @@ class SchedulesController < ApplicationController
     end
 
     def mno_schedule
-      mno = Schedule.includes(:home_team, :away_team).where(teams: { name: 'Marin One' })
+      s = Schedule.includes(:home_team, :away_team)
+      mno = s.where(home_team_id: 1) + s.where(away_team_id: 1)
       @mno = mno.sort_by &:date
     end
 
     def mnt_schedule
-      mnt = Schedule.includes(:home_team, :away_team).where(teams: { name: 'Marin Two' })
+      s = Schedule.includes(:home_team, :away_team)
+      mnt = s.where(home_team_id: 2) + s.where(away_team_id: 2)
       @mnt = mnt.sort_by &:date
     end
 
     def mns_schedule
-      mns = Schedule.includes(:home_team, :away_team).where(teams: { name: 'Marin Socials' })
+      s = Schedule.includes(:home_team, :away_team)
+      mns = s.where(home_team_id: 3) + s.where(away_team_id: 3)
       @mns = mns.sort_by &:date
     end
 end

@@ -90,8 +90,7 @@ class SchedulesController < ApplicationController
     end
 
     def mns_schedule
-      s = Schedule.includes(:home_team, :away_team)
-      mns = s.where(home_team_id: 3) + s.where(away_team_id: 3)
+      mns = Schedule.includes(:home_team, :away_team).where(teams: { name: 'Marin Socials' })
       @mns = mns.sort_by &:date
     end
 end

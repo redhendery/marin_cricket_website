@@ -2,6 +2,8 @@
 
 # Helper methods available application wide
 module ApplicationHelper
+  include Pagy::Frontend
+  
   def full_title(page_title = '')
     base_title = 'Marin Cricket Club'
     if page_title.empty?

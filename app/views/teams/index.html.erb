@@ -10,6 +10,7 @@
 
 <h1 class="title is-1">Marin Teams</h1>
 <hr>
+<%== pagy_bulma_nav(@pagy).html_safe if admin_logged_in? %>
 <% @teams.each do |team| %>
   <ul>
     <div class="columns is-vcentered buttons are-medium">

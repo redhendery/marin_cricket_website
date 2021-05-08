@@ -3,7 +3,7 @@
 <% if admin_logged_in? %>
   <div class="columns buttons are-medium is-justify-content-space-around">
     <div class="column is-4">
-      <%= link_to 'Add to Newsletter', new_newsletter_path, class: 'button is-link is-fullwidth' %>
+      <%= link_to 'Add Game Newsletter', new_newsletter_path, class: 'button is-link is-fullwidth' %>
     </div>
     <div class="column is-4">
       <%= link_to 'Add Member Account', signup_path, class: 'button is-success is-fullwidth' %>
@@ -14,4 +14,5 @@
 <h1 class="title is-1">All Marin Cricket Club Players</h1>
 <hr>
 
+<%== pagy_bulma_nav(@pagy).html_safe %>
 <%= render @users %>

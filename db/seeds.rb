@@ -36,6 +36,33 @@ users = User.create([{
   activated_at: Time.zone.now
 }])
 
+28.times do |n|
+  first_name = Faker::Name.unique.first_name
+  last_name = Faker::Name.unique.last_name
+  email = Faker::Internet.email(name: first_name)
+  password = 'password'
+  bats = 'Right'
+  bowls = 'Left'
+  role = ['Batsmen', 'Bolwer', 'All Rounder', 'Wicket Keeper']
+  profile = Faker::ChuckNorris.fact
+  admin = false
+  paid = Faker::Boolean.boolean(true_ratio: 0.5)
+  User.create!(
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    password: password,
+    password_confirmation: password,
+    bats: bats,
+    bowls: bowls,
+    role: role.sample,
+    profile: profile,
+    admin: admin,
+    paid: paid,
+    activated: true,
+    activated_at: Time.zone.now)
+end
+
 p "added #{User.count} users"
 
 newsletters = Newsletter.create([{

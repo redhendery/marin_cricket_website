@@ -3,7 +3,11 @@ class TeamsController < ApplicationController
   before_action :admin_user, only: %w[create new edit update destroy]
 
   def index
-    @teams = Team.where('name LIKE ?', '%Marin%' ).all
+    if admin_logged_in?
+      @pagy, @teams = pagy(Team.all, items: 10)
+    else
+      @teams = Team.where('name LIKE ?', '%Marin%' ).all
+    end
   end
 
   def show; end

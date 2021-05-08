@@ -10,7 +10,7 @@ class UsersController < ApplicationController
                                           activate_account deactivate_account]
 
   def index
-    @users = User.where(activated: true).order(first_name: :asc)
+    @pagy, @users = pagy(User.where(activated: true).order(first_name: :asc), items: 10)
   end
 
   def new

@@ -40,3 +40,11 @@
   <span class="has-text-weight-semibold">Match Fee for Marin players:</span>
   $20 per player
 </p>
+
+<% unless @schedule.home_team_id == 1 || @schedule.away_team_id == 1 %>
+
+  <% unless @schedule.date < Date.today + 55.hours %>
+    <%= render 'schedules/partials/signup_buttons' %>
+  <% end %>
+  
+<% end %>

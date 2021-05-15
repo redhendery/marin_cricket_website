@@ -1,10 +1,10 @@
 <div class="columns buttons are-medium">
-  <%# <% unless current_page?(selection_schedule_path) %> %>
+  <% unless current_page?(selection_schedule_path) %>
     <div class="column">
-      <%# <%= link_to 'Set Lineup', selection_schedule_path,
-                    class: 'button is-info is-fullwidth' %> %>
+      <%= link_to 'Set Lineup', selection_schedule_path,
+                    class: 'button is-info is-fullwidth' %>
     </div>
-  <%# <% end %> %>
+  <% end %>
 
   <% unless current_page?(edit_schedule_path) %>
     <div class="column">

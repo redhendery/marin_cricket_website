@@ -4,7 +4,7 @@ class SchedulesController < ApplicationController
   before_action :mnt_schedule, only: %w[index twos]
   before_action :mns_schedule, only: %w[index socials]
   before_action :admin_user, only: %w[create new edit destroy]
-  before_action :set_schedule, only: %w[show edit update destroy]
+  before_action :set_schedule, only: %w[show edit update destroy game_signup game_withdrawal selection]
 
   def index
     @mno_next = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1))
@@ -53,10 +53,41 @@ class SchedulesController < ApplicationController
 
   def socials; end
 
+  def game_signup
+    @selection = Selection.find_by(schedule_id: @schedule.id, user_id: current_user.id)
+    if @selection
+      flash[:info] = current_user.first_name +
+                      ", as amazing as it would be to have two of you in the team,
+                      I'm pretty sure that you aren't Michael Keaton and this isn't Multiplicity."
+      redirect_to @schedule
+    else
+      current_user.selections.create(schedule: @schedule)
+      flash[:success] = 'Thank you for signing up to play ' + current_user.first_name + '!'
+      redirect_to @schedule
+    end
+  end
+
+  def game_withdrawal
+    @selection = Selection.find_by(schedule_id: @schedule.id, user_id: current_user.id)
+    if @selection
+      @selection.destroy
+      flash[:danger] = current_user.first_name +
+                      ', you have been removed from the selection pool.'
+      redirect_to @schedule
+    else
+      flash[:info] = current_user.first_name + ", you are already weren't signed up to play. So rest assured we won't pick you."
+      redirect_to @schedule
+    end
+  end
+
+  def selection
+    @selections = @schedule.selections.includes(:schedule)
+  end
+
   private
 
     def schedule_params
-      params.require(:schedule).permit(:date, :home_team_id, :away_team_id)
+      params.require(:schedule).permit(:date, :home_team_id, :away_team_id, user_ids: [])
     end
 
     def set_schedule

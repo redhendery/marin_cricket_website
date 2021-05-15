@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_144013) do
+ActiveRecord::Schema.define(version: 2021_05_08_220249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 2021_04_25_144013) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "slug"
     t.index ["slug"], name: "index_schedules_on_slug", unique: true
+  end
+
+  create_table "selections", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "schedule_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["schedule_id"], name: "index_selections_on_schedule_id"
+    t.index ["user_id", "schedule_id"], name: "index_selections_on_user_id_and_schedule_id", unique: true
+    t.index ["user_id"], name: "index_selections_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|

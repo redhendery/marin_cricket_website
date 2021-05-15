@@ -9,11 +9,12 @@ class User < ApplicationRecord
   # Force secure password, downcase email address and capitalize names entered on save and validates User object
   has_secure_password
 
+  has_many :selections
+  has_many :schedules, -> { distinct }, through: :selections
+
   attr_accessor :remember_token, :activation_token, :reset_token
-
-  before_create :create_activation_digest
-
   before_save :downcase_email, :capitalize_first_name, :capitalize_last_name
+  before_create :create_activation_digest
 
   validates :first_name, :last_name, presence: true, length: { minimum: 3, maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze

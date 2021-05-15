@@ -37,9 +37,14 @@ Rails.application.routes.draw do
   end
 
   resources :teams
+
+  # Schedule routes for individual teams, game signup / withdrawl and selections
   resources :schedules do
     collection do
       get :ones, :twos, :socials
+    end
+    member do
+      get :game_signup, :game_withdrawal, :selection
     end
   end
 end

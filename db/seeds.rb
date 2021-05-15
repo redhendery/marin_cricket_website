@@ -135,3 +135,307 @@ schedule = Schedule.create([{
 end
 
 p "added #{Schedule.count} games"
+
+selections = Selection.create([{
+  user_id: 1,
+  schedule_id: 1
+}, {
+  user_id: 1,
+  schedule_id: 2
+}, {
+  user_id: 1,
+  schedule_id: 3
+}, {
+  user_id: 1,
+  schedule_id: 4
+}, {
+  user_id: 1,
+  schedule_id: 5
+}, {
+  user_id: 1,
+  schedule_id: 6
+}, {
+  user_id: 1,
+  schedule_id: 7
+}, {
+  user_id: 1,
+  schedule_id: 8
+}, {
+  user_id: 1,
+  schedule_id: 9
+}, {
+  user_id: 1,
+  schedule_id: 10
+}, {
+  user_id: 2,
+  schedule_id: 1
+}, {
+  user_id: 2,
+  schedule_id: 2
+}, {
+  user_id: 2,
+  schedule_id: 3
+}, {
+  user_id: 2,
+  schedule_id: 4
+}, {
+  user_id: 2,
+  schedule_id: 5
+}, {
+  user_id: 2,
+  schedule_id: 6
+}, {
+  user_id: 2,
+  schedule_id: 7
+}, {
+  user_id: 2,
+  schedule_id: 8
+}, {
+  user_id: 2,
+  schedule_id: 9
+}, {
+  user_id: 2,
+  schedule_id: 10
+}, {
+  user_id: 3,
+  schedule_id: 1
+}, {
+  user_id: 3,
+  schedule_id: 2
+}, {
+  user_id: 3,
+  schedule_id: 3
+}, {
+  user_id: 3,
+  schedule_id: 4
+}, {
+  user_id: 3,
+  schedule_id: 5
+}, {
+  user_id: 3,
+  schedule_id: 6
+}, {
+  user_id: 3,
+  schedule_id: 7
+}, {
+  user_id: 3,
+  schedule_id: 8
+}, {
+  user_id: 3,
+  schedule_id: 9
+}, {
+  user_id: 3,
+  schedule_id: 10
+}, {
+  user_id: 4,
+  schedule_id: 1
+}, {
+  user_id: 4,
+  schedule_id: 2
+}, {
+  user_id: 4,
+  schedule_id: 3
+}, {
+  user_id: 4,
+  schedule_id: 4
+}, {
+  user_id: 4,
+  schedule_id: 5
+}, {
+  user_id: 4,
+  schedule_id: 6
+}, {
+  user_id: 4,
+  schedule_id: 7
+}, {
+  user_id: 4,
+  schedule_id: 8
+}, {
+  user_id: 4,
+  schedule_id: 9
+}, {
+  user_id: 4,
+  schedule_id: 10
+}, {
+  user_id: 5,
+  schedule_id: 1
+}, {
+  user_id: 5,
+  schedule_id: 2
+}, {
+  user_id: 5,
+  schedule_id: 3
+}, {
+  user_id: 5,
+  schedule_id: 4
+}, {
+  user_id: 5,
+  schedule_id: 5
+}, {
+  user_id: 5,
+  schedule_id: 6
+}, {
+  user_id: 5,
+  schedule_id: 7
+}, {
+  user_id: 5,
+  schedule_id: 8
+}, {
+  user_id: 5,
+  schedule_id: 9
+}, {
+  user_id: 5,
+  schedule_id: 10
+}, {
+  user_id: 6,
+  schedule_id: 1
+}, {
+  user_id: 6,
+  schedule_id: 2
+}, {
+  user_id: 6,
+  schedule_id: 3
+}, {
+  user_id: 6,
+  schedule_id: 4
+}, {
+  user_id: 6,
+  schedule_id: 5
+}, {
+  user_id: 6,
+  schedule_id: 6
+}, {
+  user_id: 6,
+  schedule_id: 7
+}, {
+  user_id: 6,
+  schedule_id: 8
+}, {
+  user_id: 6,
+  schedule_id: 9
+}, {
+  user_id: 6,
+  schedule_id: 10
+}, {
+  user_id: 7,
+  schedule_id: 1
+}, {
+  user_id: 7,
+  schedule_id: 2
+}, {
+  user_id: 7,
+  schedule_id: 3
+}, {
+  user_id: 7,
+  schedule_id: 4
+}, {
+  user_id: 7,
+  schedule_id: 5
+}, {
+  user_id: 7,
+  schedule_id: 6
+}, {
+  user_id: 7,
+  schedule_id: 7
+}, {
+  user_id: 7,
+  schedule_id: 8
+}, {
+  user_id: 7,
+  schedule_id: 9
+}, {
+  user_id: 7,
+  schedule_id: 10
+}, {
+  user_id: 8,
+  schedule_id: 1
+}, {
+  user_id: 8,
+  schedule_id: 2
+}, {
+  user_id: 8,
+  schedule_id: 3
+}, {
+  user_id: 8,
+  schedule_id: 4
+}, {
+  user_id: 8,
+  schedule_id: 5
+}, {
+  user_id: 8,
+  schedule_id: 6
+}, {
+  user_id: 8,
+  schedule_id: 7
+}, {
+  user_id: 8,
+  schedule_id: 8
+}, {
+  user_id: 8,
+  schedule_id: 9
+}, {
+  user_id: 8,
+  schedule_id: 10
+}, {
+  user_id: 9,
+  schedule_id: 1
+}, {
+  user_id: 9,
+  schedule_id: 2
+}, {
+  user_id: 9,
+  schedule_id: 3
+}, {
+  user_id: 9,
+  schedule_id: 4
+}, {
+  user_id: 9,
+  schedule_id: 5
+}, {
+  user_id: 9,
+  schedule_id: 6
+}, {
+  user_id: 9,
+  schedule_id: 7
+}, {
+  user_id: 9,
+  schedule_id: 8
+}, {
+  user_id: 9,
+  schedule_id: 9
+}, {
+  user_id: 9,
+  schedule_id: 10
+}, {
+  user_id: 10,
+  schedule_id: 1
+}, {
+  user_id: 10,
+  schedule_id: 2
+}, {
+  user_id: 10,
+  schedule_id: 3
+}, {
+  user_id: 10,
+  schedule_id: 4
+}, {
+  user_id: 10,
+  schedule_id: 5
+}, {
+  user_id: 10,
+  schedule_id: 6
+}, {
+  user_id: 10,
+  schedule_id: 7
+}, {
+  user_id: 10,
+  schedule_id: 8
+}, {
+  user_id: 10,
+  schedule_id: 9
+}, {
+  user_id: 10,
+  schedule_id: 10
+}])
+
+p "added #{Selection.count} selections"

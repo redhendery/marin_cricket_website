@@ -1,0 +1,41 @@
+<%= hidden_field_tag 'schedule[user_ids][]', nil %>
+
+<% @schedule.users.each do |user| %>
+  <% if user.paid? %>
+    <hr>
+    <div class="columns is-vcentered">
+
+      <div class="column">
+        <p class="is-size-5 has-text-weight-medium">
+          <%= label_tag dom_id(user), user.first_name %> <%= user.last_name %>
+        </p>
+        <p>
+          <span class="has-text-weight-medium">Role:</span> <%= user.role %>
+        </p>
+        <p>
+          <span class="has-text-weight-medium">Bats:</span> <%= user.bats %>
+        </p>
+        <p>
+          <span class="has-text-weight-medium">Bowls:</span> <%= user.bowls %>
+        </p>
+      </div>
+
+      <div class="column" style="padding-top:35px;">
+        <p>
+          <span class="has-text-weight-medium">Games played:</span> <%= user.selections.count - 1 %>
+        </p>
+        <% if user.selections[-2].blank? %>
+          <p>
+            <span class="has-text-weight-medium">Last Played:</span> N / A
+          </p>
+        <% else %>
+          <p>
+            <span class="has-text-weight-medium">Last played:</span> <%= user.selections[-2].schedule.date.strftime('%a, %B %d') %>
+          </p>
+          <span class="has-text-weight-medium" style="padding-right:7px;">Select: </span>
+          <%= check_box_tag 'schedule[user_ids][]', user.id, @schedule.user_ids.include?(user.id), id: dom_id(user) %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

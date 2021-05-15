@@ -1,0 +1,20 @@
+<% unless @schedule.date.before?(Date.today) %>
+  <% if current_user.nil?  %>
+    <h4 class="title is-4">
+      Sign Up to play!
+    </h4>
+    <%= link_to 'Sign Up to Play ', login_path, class: 'button is-medium is-success' %>
+  <% elsif @schedule.selections.find_by(user_id: current_user.id) %>
+    <h4 class="title is-4">
+      Can't Play? Remove yourself from the selection pool.
+    </h4>
+    <%= link_to 'Remove Yourself From Selection', game_withdrawal_schedule_path(@schedule),
+        class: 'button is-medium is-danger', data: { confirm: 'Are you sure ' + current_user.first_name +
+                '? You will be removed from the selection pool and will not be picked to play.' } %>
+  <% else %>
+    <h4 class="title is-4">
+      Signup to play! Go on, you know you want to!
+    </h4>
+    <%= link_to 'Signup To Play!', game_signup_schedule_path(@schedule), class: 'button is-medium is-success' %>
+  <% end %>
+<% end %>

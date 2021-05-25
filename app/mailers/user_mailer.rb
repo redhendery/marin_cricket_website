@@ -16,4 +16,8 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: 'Password Reset Request for marincricketclub.com'
   end
+
+  def fee_reset
+    mail to: 'redhendery@gmail.com, jaideep.nair@gmail.com, nicklynam721@gmail.com', subject: 'MCC User Fee Reset Task Completed'
+  end
 end

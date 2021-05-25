@@ -87,7 +87,8 @@ class SchedulesController < ApplicationController
   private
 
     def schedule_params
-      params.require(:schedule).permit(:date, :home_team_id, :away_team_id, user_ids: [])
+      params.require(:schedule).permit(:date, :home_team_id,
+                      :away_team_id, :start_time, user_ids: [])
     end
 
     def set_schedule

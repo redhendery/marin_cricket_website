@@ -17,3 +17,12 @@ dave:
   admin: false
   activated: true
   activated_at: Time.zone.now
+
+susan:
+  first_name: Susan
+  last_name: Susanson
+  email: susan@email.com
+  password_digest: <%= User.digest('password') %>
+  admin: false
+  activated: false
+  activated_at: Time.zone.now

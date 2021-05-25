@@ -15,20 +15,12 @@
 
 <p>
   <span class="has-text-weight-semibold">Players Arrive By:</span>
-  <% if @schedule.home_team.name === 'Marin Socials' %>
-    10:00am
-  <% else %>
-    10:30am
-  <% end %>
+  <%= (@schedule.start_time - 30.minutes).strftime('%H:%M %P') %>
 </p>
 
 <p>
   <span class="has-text-weight-semibold">Match Start Time:</span>
-  <% if @schedule.home_team.name === 'Marin Socials' %>
-    10:30am
-  <% else %>
-    11:00am
-  <% end %>
+  <%= @schedule.start_time.strftime('%H:%M %P') %>
 </p>
 
 <p>
@@ -43,8 +35,8 @@
 
 <% unless @schedule.home_team_id == 1 || @schedule.away_team_id == 1 %>
 
-  <% unless @schedule.date < Date.today + 55.hours %>
+  <% if day == monday || tuesday %>
     <%= render 'schedules/partials/signup_buttons' %>
   <% end %>
-  
+
 <% end %>

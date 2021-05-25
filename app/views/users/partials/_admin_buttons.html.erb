@@ -13,20 +13,20 @@
 
   <div class="column is-4">
     <% if user.paid? %>
-      <%= link_to 'Not Paid Fees', not_paid_user_path(user), class: 'button is-link is-fullwidth',
+      <%= link_to 'Paid Fees', not_paid_user_path(user), class: 'button is-link is-fullwidth',
                     data: { confirm: "#{user.first_name} #{user.last_name} will be marked as not having paid fees." } %>
     <% else %>
-       <%= link_to 'Paid Fees', paid_user_path(user), class: 'button is-dark is-fullwidth',
+       <%= link_to 'Not Paid Fees', paid_user_path(user), class: 'button is-dark is-fullwidth',
                      data: { confirm: "#{user.first_name} #{user.last_name} will be has been marked as having paid fees." } %>
     <% end %>
   </div>
 
   <div class="column is-4">
     <% if user.activated? %>
-      <%= link_to 'Deactivate User', deactivate_account_user_path(user), class: 'button is-primary is-fullwidth',
+      <%= link_to 'Active User', deactivate_account_user_path(user), class: 'button is-primary is-fullwidth',
                     data: { confirm: "#{user.first_name} #{user.last_name} will be deactivated, they will no longer receive game emails." } %>
     <% else %>
-       <%= link_to 'Activate User', activate_account_user_path(user), class: 'button is-fullwidth',
+       <%= link_to 'Inactivate User', activate_account_user_path(user), class: 'button is-fullwidth',
                      data: { confirm: "#{user.first_name} #{user.last_name} will be activated, they will now receive game emails." } %>
     <% end %>
   </div>
@@ -42,10 +42,10 @@
 
   <div class="column">
     <% if user.admin? %>
-      <%= link_to 'Remove Admin', remove_admin_user_path(user), class: 'button is-info is-fullwidth',
+      <%= link_to 'User is Admin', remove_admin_user_path(user), class: 'button is-info is-fullwidth',
                     data: { confirm: "#{user.first_name} #{user.last_name} will lose admin privledges."} %>
     <% else %>
-      <%= link_to 'Make Admin', make_admin_user_path(user), class: 'button is-success is-fullwidth',
+      <%= link_to 'Make User Admin', make_admin_user_path(user), class: 'button is-success is-fullwidth',
                     data: { confirm: "#{user.first_name} #{user.last_name} will be given admin privledges."} %>
     <% end %>
   </div>

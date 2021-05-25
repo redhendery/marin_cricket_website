@@ -32,12 +32,10 @@
               type: 'email', placeholder: 'Your Email Address' %>
       </div>
 
-      <% unless admin_logged_in? %>
-        <div class="field">
-          <%= flash[:recaptcha_error] %>
-          <%= recaptcha_tags %>
-        </div>
-      <% end %>
+      <div class="field">
+        <%= flash[:recaptcha_error] %>
+        <%= recaptcha_tags %>
+      </div>
 
       <div class="field">
         <%= f.submit 'Sign Up for Newsletter', class: 'button is-medium is-link is-fullwidth',

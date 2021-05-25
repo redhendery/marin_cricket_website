@@ -32,9 +32,9 @@
           <p>
             <span class="has-text-weight-medium">Last played:</span> <%= user.selections[-2].schedule.date.strftime('%a, %B %d') %>
           </p>
-          <span class="has-text-weight-medium" style="padding-right:7px;">Select: </span>
-          <%= check_box_tag 'schedule[user_ids][]', user.id, @schedule.user_ids.include?(user.id), id: dom_id(user) %>
         <% end %>
+        <span class="has-text-weight-medium" style="padding-right:7px;">Select: </span>
+        <%= check_box_tag 'schedule[user_ids][]', user.id, @schedule.user_ids.include?(user.id), id: dom_id(user) %>
       </div>
     </div>
   <% end %>

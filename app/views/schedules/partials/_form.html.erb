@@ -22,7 +22,13 @@
       <div class="field">
         <%= f.label :date, class: 'label' %>
         <%= f.date_field :date, required: true, class: 'input',
-                    type: 'date', placeholder: 'Game Date' %>
+                          type: 'date', placeholder: 'Game Date' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :start_time, class: 'label' %>
+        <%= f.time_field :start_time, required: true, class: 'input',
+                          type: 'time', placeholder: 'Game Start Time' %>
       </div>
 
         <%= f.submit yield(:button_text), class: 'button is-medium is-link is-fullwidth' %>

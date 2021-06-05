@@ -8,7 +8,7 @@ class ScheduleMailer < ApplicationMailer
     mail to: newsletter.email, subject: 'Marin Cricket Club Games This Weekend!'
   end
 
-  def upcoming_games_email_users(user, upcoming)
+  def upcoming_games_email(user, upcoming)
     @user = user
     @upcoming = Schedule.where(date: Date.current..(Date.current + 7.days))
     @mno = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1))

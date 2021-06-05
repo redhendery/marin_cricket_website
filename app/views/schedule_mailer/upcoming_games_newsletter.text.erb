@@ -11,7 +11,7 @@ Playing against <%= mno.away_team.name %> on <%= mno.date.strftime('%A, %B %d') 
 <% else %>
 Playing against <%= mno.home_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at <%= mno.home_team.home_field %>.
 <% end %>
-First ball is at <%= @schedule.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
+First ball is at <%= mno.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
 Copy and paste this link into your browser for more information:
 <%= schedule_url(mno) %>
 <% end %>
@@ -28,7 +28,7 @@ Playing against <%= mnt.away_team.name %> on <%= mnt.date.strftime('%A, %B %d') 
 <% else %>
 Playing against <%= mnt.home_team.name %> on <%= mnt.date.strftime('%A, %B %d') %> at <%= mnt.home_team.home_field %>
 <% end %>
-First ball is at <%= @schedule.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
+First ball is at <%= mnt.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
 Copy and paste this link into your browser for more information:
 <%= schedule_url(mnt) %>
 <% end %>
@@ -45,7 +45,7 @@ Playing against <%= mns.away_team.name %> on <%= mns.date.strftime('%A, %B %d') 
 <% else %>
 Playing against <%= mns.home_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at <%= mns.home_team.home_field %>
 <% end %>
-First ball is at <%= @schedule.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
+First ball is at <%= mns.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
 Copy and paste this link into your browser for more information:
 <%= schedule_url(mns) %>
 <% end %>

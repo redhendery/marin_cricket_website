@@ -5,6 +5,7 @@ class CreateSchedules < ActiveRecord::Migration[6.1]
       t.bigint :away_team_id
       t.bigint :home_team_id
       t.string :opponent
+      t.time :start_time, default: '10:30'
 
       t.timestamps
     end

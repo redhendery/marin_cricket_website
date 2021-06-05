@@ -6,9 +6,9 @@ class ScheduleMailerPreview < ActionMailer::Preview
     ScheduleMailer.upcoming_games_newsletter(newsletter, schedule)
   end
 
-  def upcoming_games_email_users
+  def upcoming_games_email
     user = User.second
     schedule = Schedule.all[1..3]
-    ScheduleMailer.upcoming_games_email_users(user, schedule)
+    ScheduleMailer.upcoming_games_email(user, schedule)
   end
 end

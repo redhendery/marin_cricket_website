@@ -18,7 +18,7 @@
       </p>
     <% end %>
     <p>
-      First ball is at <%= @schedule.start_time.strftime('%H:%M %P') %>
+      First ball is at <%= mno.start_time.strftime('%H:%M %P') %>
       so get down and support our boys if you can!
     </p>
     <p>
@@ -45,10 +45,10 @@
       </p>
     <% end %>
     <p>
-      Players Arrive By: <%= (@schedule.start_time - 30.minutes).strftime('%H:%M %P') %>
+      Players Arrive By: <%= (mnt.start_time - 30.minutes).strftime('%H:%M %P') %>
     </p>
     <p>
-      First Ball At: <%= @schedule.start_time.strftime('%H:%M %P') %>
+      First Ball At: <%= mnt.start_time.strftime('%H:%M %P') %>
     </p>
     <p>
       Match Fee: $20 per player
@@ -80,10 +80,10 @@
       </p>
     <% end %>
     <p>
-      Players Arrive By: <%= (@schedule.start_time - 30.minutes).strftime('%H:%M %P') %>
+      Players Arrive By: <%= (mns.start_time - 30.minutes).strftime('%H:%M %P') %>
     </p>
     <p>
-      First Ball At: <%= @schedule.start_time.strftime('%H:%M %P') %>
+      First Ball At: <%= mns.start_time.strftime('%H:%M %P') %>
     </p>
     <p>
       Match Fee: $20 per player

@@ -3,7 +3,7 @@
 <h1 class="title is-1">Marin Two Full Schedule for <%= Date.today.year %></h1>
 
 <div class="table-container">
-  <table class="table is-hoverable is-fullwidth">
+  <table class="table is-responsive is-hoverable is-fullwidth">
     <thead>
       <tr>
         <th>
@@ -27,7 +27,13 @@
         <th>
           <abbr>Directions</abbr>
         </th>
+        <th>
+          <abbr>Details</abbr>
+        </th>
         <% if admin_logged_in? %>
+          <th>
+            <abbr>Selections</abbr>
+          </th>
           <th>
             <abbr>Edit</abbr>
           </th>
@@ -61,7 +67,14 @@
           <td>
             <%= link_to 'Directions', "https://www.google.com/maps?q=#{mnt.home_team.home_field}", target: 'blank' %>
           </td>
+          <td>
+            <%= link_to 'Game Details', schedule_path(mnt), class: 'button is-link is-small is-fullwidth' %>
+          </td>
           <% if admin_logged_in? %>
+            <td>
+              <%= link_to 'Set Lineup', selection_schedule_path(mnt),
+                            class: 'button is-info is-small is-fullwidth' %>
+            </td>
             <td>
               <%= link_to 'Edit Game', edit_schedule_path(mnt), class: 'button is-small is-warning is-fullwidth' %>
             </td>

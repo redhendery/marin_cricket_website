@@ -1,10 +1,11 @@
 class SchedulesController < ApplicationController
   before_action :upcoming, :previous, only: :index
-  before_action :mno_schedule, only: %w[index ones]
-  before_action :mnt_schedule, only: %w[index twos]
-  before_action :mns_schedule, only: %w[index socials]
-  before_action :admin_user, only: %w[create new edit destroy]
-  before_action :set_schedule, only: %w[show edit update destroy game_signup game_withdrawal selection]
+  before_action :mno_schedule, only: %i[index ones]
+  before_action :mnt_schedule, only: %i[index twos]
+  before_action :mns_schedule, only: %i[index socials]
+  before_action :admin_user, only: %i[create new edit destroy]
+  before_action :logged_in_user, only: %i[game_signup game_withdrawal]
+  before_action :set_schedule, only: %i[show edit update destroy game_signup game_withdrawal selection]
 
   def index
     @mno_next = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1))

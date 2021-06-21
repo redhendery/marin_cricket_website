@@ -9,7 +9,6 @@ class ContactTest < ActiveSupport::TestCase
       phone: '12345678',
       email: 'dummy@contact.com',
       message: 'Hello, I am contacting you.',
-      ham_sandwich: ''
     )
   end
 
@@ -108,9 +107,4 @@ class ContactTest < ActiveSupport::TestCase
     assert @contact.valid?
   end
 
-  #  Blank field tests
-  test 'accepts form if left blank' do
-    @contact.ham_sandwich = ''
-    assert @contact.valid?
-  end
 end

@@ -1,0 +1,11 @@
+<p>
+  Hello <%= @user.first_name %>,
+</p>
+
+<p>
+  This email confirms you have ben removed from  selection for game <%= @schedule.home_team.name %> vs. <%= @schedule.away_team.name %> on <%= @schedule.date.strftime('%A, %B %d') %> at <%= @schedule.start_time.strftime('%H:%M %P') %>
+</p>
+
+<p>
+  Actually are available? Visit the <%= link_to 'game page', schedule_url(@schedule) %> to sign up again.
+</p>

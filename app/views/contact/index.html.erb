@@ -32,10 +32,6 @@
             oninput: 'this.style.height = ""; this.style.height = this.scrollHeight + 3 + "px"' %>
       </div>
 
-      <div class="field" style="display:none">
-        <%= f.text_field :ham_sandwich, autocomplete: 'off', required: false %>
-      </div>
-
       <div class="field">
         <%= flash[:recaptcha_error] %>
         <%= recaptcha_tags %>

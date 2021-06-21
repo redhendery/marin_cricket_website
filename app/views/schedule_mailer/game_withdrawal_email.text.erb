@@ -1,0 +1,7 @@
+Hello <%= @user.first_name %>,
+
+This email confirms you have ben removed from  selection for game <%= @schedule.home_team.name %> vs. <%= @schedule.away_team.name %> on <%= @schedule.date.strftime('%A, %B %d') %> at <%= @schedule.start_time.strftime('%H:%M %P') %>
+
+Didn't mean to withdraw?
+Copy and paste the below link to sign up again.
+<%= schedule_url(@schedule) %>

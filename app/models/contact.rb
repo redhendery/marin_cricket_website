@@ -6,7 +6,6 @@ class Contact < MailForm::Base
   attribute :email
   attribute :phone
   attribute :message
-  attribute :ham_sandwich
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :name, presence: true, length: { minimum: 3, maximum: 50 }

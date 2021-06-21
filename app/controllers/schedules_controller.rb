@@ -63,6 +63,7 @@ class SchedulesController < ApplicationController
       redirect_to @schedule
     else
       current_user.selections.create(schedule: @schedule)
+      @schedule.send_game_sign_up_email current_user
       flash[:success] = 'Thank you for signing up to play ' + current_user.first_name + '!'
       redirect_to @schedule
     end
@@ -72,6 +73,7 @@ class SchedulesController < ApplicationController
     @selection = Selection.find_by(schedule_id: @schedule.id, user_id: current_user.id)
     if @selection
       @selection.destroy
+      @schedule.send_game_withdrawal_email current_user
       flash[:danger] = current_user.first_name +
                       ', you have been removed from the selection pool.'
       redirect_to @schedule

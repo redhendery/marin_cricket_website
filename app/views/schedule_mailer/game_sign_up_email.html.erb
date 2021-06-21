@@ -1,0 +1,17 @@
+<p>Hello <%= @user.first_name %>!</p>
+
+<p>
+  This email confirms you have signed up to play in game
+  <%= @schedule.home_team.name %> vs. <%= @schedule.away_team.name %>
+  on <%= @schedule.date.strftime('%A, %B %d') %> at <%= @schedule.start_time.strftime('%H:%M %P') %>
+</p>
+<h2>IT DOES NOT GUARANTEE YOU WILL BE SELECTED</h2>
+
+<p>
+  An email will come out later in the week confirming the team.
+</p>
+
+<p>
+  Didn't mean to sign up or can't play now? Visit the
+  <%= link_to 'game page', schedule_url(@schedule) %> to remove yourself from selection.
+</p>

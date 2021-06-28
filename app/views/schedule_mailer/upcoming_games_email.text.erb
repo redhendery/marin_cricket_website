@@ -1,12 +1,13 @@
 Hello <%= @user.first_name %>!
 This weekend Marin Cricket Club has <%= @upcoming.count %> games on!
 
-Marin One
 <% if @mno.blank? %>
+Marin One
 Marin One are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.
 <% else %>
 <% @mno.each do |mno| %>
 <% if mno.home_team.name === 'Marin One' %>
+Marin One
 Playing against <%= mno.away_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
 <% else %>
 Playing against <%= mno.home_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at <%= mno.home_team.home_field %>.
@@ -18,12 +19,13 @@ Copy and paste this link into your browser for more information:
 <% end %>
 
 
-Marin Two
 <% if @mnt.blank? %>
+Marin Two
 Marin Two are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.
 <% else %>
 <% @mnt.each do |mnt| %>
 <% if mnt.home_team.name === 'Marin Two' %>
+Marin Two
 Playing against <%= mnt.away_team.name %> on <%= mnt.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
 <% else %>
 Playing against <%= mnt.home_team.name %> on <%= mnt.date.strftime('%A, %B %d') %> at <%= mnt.home_team.home_field %>
@@ -37,12 +39,13 @@ Copy and paste this link into your browser for more information or to sign up to
 <% end %>
 
 
-Marin Socials
 <% if @mns.blank? %>
+Marin Socials
 The Marin Socials are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.
 <% else %>
 <% @mns.each do |mns| %>
 <% if mns.home_team.name === 'Marin Socials' %>
+Marin Socials
 Playing against <%= mns.away_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
 <% else %>
 Playing against <%= mns.home_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at <%= mns.home_team.home_field %>

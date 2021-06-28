@@ -1,13 +1,16 @@
 <p>Hello <%= @newsletter.first_name %>!</p>
 
 <p>This weekend Marin Cricket Club has <%= @upcoming.count %> games on!</p>
+<br>
+<hr>
 
-<h1>Marin One</h1>
 <% if @mno.blank? %>
+  <h1>Marin One</h1>
   <p>Marin One are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.</p>
 <% else %>
   <% @mno.each do |mno| %>
     <% if mno.home_team.name === 'Marin One' %>
+    <h1>Marin One</h1>
       <p>
         Playing against <%= mno.away_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
@@ -18,7 +21,8 @@
       </p>
     <% end %>
     <p>
-      First ball is at <%= mno.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
+      First ball is at <%= mno.start_time.strftime('%H:%M %P') %>
+      so get down and support our boys if you can!
     </p>
     <p>
       <%= link_to 'Full game details here!', schedule_url(mno) %>
@@ -26,13 +30,15 @@
   <% end %>
 <% end %>
 <br>
+<hr>
 
-<h1>Marin Two</h1>
 <% if @mnt.blank? %>
+  <h1>Marin Two</h1>
   <p>Marin Two are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.</p>
 <% else %>
   <% @mnt.each do |mnt| %>
     <% if mnt.home_team.name === 'Marin Two' %>
+      <h1>Marin Two</h1>
       <p>
         Playing against <%= mnt.away_team.name %> on <%= mnt.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
@@ -44,7 +50,7 @@
       </p>
     <% end %>
     <p>
-      First ball is at <%= mnt.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
+      First Ball At: <%= mnt.start_time.strftime('%H:%M %P') %>
     </p>
     <p>
       <%= link_to 'Full game details here!', schedule_url(mnt) %>
@@ -52,13 +58,15 @@
   <% end %>
 <% end %>
 <br>
+<hr>
 
-<h1>Marin Socials</h1>
 <% if @mns.blank? %>
+  <h1>Marin Socials</h1>
   <p>The Marin Socials are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.</p>
 <% else %>
   <% @mns.each do |mns| %>
     <% if mns.home_team.name === 'Marin Socials' %>
+      <h1>Marin Socials</h1>
       <p>
         Playing against <%= mns.away_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
@@ -70,10 +78,12 @@
       </p>
     <% end %>
     <p>
-      First ball is at <%= mns.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
+      First Ball At: <%= mns.start_time.strftime('%H:%M %P') %>
     </p>
     <p>
       <%= link_to 'Full game details here!', schedule_url(mns) %>
     </p>
+    <br>
+    <hr>
   <% end %>
 <% end %>

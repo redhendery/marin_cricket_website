@@ -34,8 +34,7 @@
 </p>
 
 <% unless @schedule.home_team_id == 1 || @schedule.away_team_id == 1 %>
-  <% if day.monday? || day.tuesday? %> %>
+  <% if day.monday? || day.tuesday? %>
     <%= render 'schedules/partials/signup_buttons' %>
   <% end %>
-
 <% end %>

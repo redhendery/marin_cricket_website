@@ -9,8 +9,8 @@
   <p>Marin One are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.</p>
 <% else %>
   <% @mno.each do |mno| %>
+  <h1>Marin One</h1>
     <% if mno.home_team.name === 'Marin One' %>
-    <h1>Marin One</h1>
       <p>
         Playing against <%= mno.away_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
@@ -37,8 +37,8 @@
   <p>Marin Two are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.</p>
 <% else %>
   <% @mnt.each do |mnt| %>
+  <h1>Marin Two</h1>
     <% if mnt.home_team.name === 'Marin Two' %>
-      <h1>Marin Two</h1>
       <p>
         Playing against <%= mnt.away_team.name %> on <%= mnt.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
@@ -74,8 +74,8 @@
   <p>The Marin Socials are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.</p>
 <% else %>
   <% @mns.each do |mns| %>
+  <h1>Marin Socials</h1>
     <% if mns.home_team.name === 'Marin Socials' %>
-      <h1>Marin Socials</h1>
       <p>
         Playing against <%= mns.away_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>

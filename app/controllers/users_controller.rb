@@ -10,7 +10,11 @@ class UsersController < ApplicationController
                                           activate_account deactivate_account]
 
   def index
-    @users = User.where(activated: true).order(first_name: :asc)
+    if admin_logged_in?
+      @users = User.all
+    else
+      @users = User.where(activated: true).order(first_name: :asc)
+    end
   end
 
   def new

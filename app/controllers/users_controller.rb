@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def index
     if admin_logged_in?
-      @users = User.all
+      @users = User.all.order(first_name: :asc)
     else
       @users = User.where(activated: true).order(first_name: :asc)
     end

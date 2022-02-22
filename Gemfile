@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 
-gem 'rails', '~> 6.1.4.1'
+gem 'rails', '~> 7.0.2.2'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -15,6 +15,7 @@ gem 'pagy', '~> 3.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'recaptcha', '~> 5.7'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
@@ -25,7 +26,7 @@ end
 
 group :development do
   gem 'brakeman'
-  gem 'bullet', '~> 6.1.0'
+  # gem 'bullet', '~> 6.1.0'
   gem 'listen', '~> 3.2'
   gem 'rubocop'
   gem 'rubocop-minitest', require: false

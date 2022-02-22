@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_08_220249) do
-
+ActiveRecord::Schema[7.0].define(version: 2021_05_08_220249) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,8 +18,8 @@ ActiveRecord::Schema.define(version: 2021_05_08_220249) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -29,8 +28,8 @@ ActiveRecord::Schema.define(version: 2021_05_08_220249) do
     t.bigint "home_team_id"
     t.string "opponent"
     t.time "start_time", default: "2000-01-01 10:30:00"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["slug"], name: "index_schedules_on_slug", unique: true
   end
@@ -38,8 +37,8 @@ ActiveRecord::Schema.define(version: 2021_05_08_220249) do
   create_table "selections", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "schedule_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["schedule_id"], name: "index_selections_on_schedule_id"
     t.index ["user_id", "schedule_id"], name: "index_selections_on_user_id_and_schedule_id", unique: true
     t.index ["user_id"], name: "index_selections_on_user_id"
@@ -50,8 +49,8 @@ ActiveRecord::Schema.define(version: 2021_05_08_220249) do
     t.string "about"
     t.string "home_field"
     t.string "abbreviation"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["slug"], name: "index_teams_on_slug", unique: true
   end
@@ -67,15 +66,15 @@ ActiveRecord::Schema.define(version: 2021_05_08_220249) do
     t.string "bowls", default: "Right"
     t.boolean "paid", default: false
     t.boolean "admin", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "slug"
     t.string "remember_digest"
     t.string "activation_digest"
     t.boolean "activated", default: false
-    t.datetime "activated_at"
+    t.datetime "activated_at", precision: nil
     t.string "reset_digest"
-    t.datetime "reset_sent_at"
+    t.datetime "reset_sent_at", precision: nil
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end

@@ -6,13 +6,16 @@
     "@rails/actioncable": "^7.0.0",
     "@rails/activestorage": "^7.0.0",
     "@rails/ujs": "^7.0.0",
-    "@rails/webpacker": "5.4.3",
     "bulma": "^0.9.3",
+    "esbuild": "^0.14.23",
     "stimulus": "^2.0.0",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
   },
   "version": "0.1.0",
-  "devDependencies": {
-    "webpack-dev-server": "^3.11.0"
+  "devDependencies": {},
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds"
   }
 }

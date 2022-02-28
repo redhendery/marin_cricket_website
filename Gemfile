@@ -13,6 +13,7 @@ gem "bulma-rails", "~> 0.9.3"
 gem 'friendly_id'
 gem 'jsbundling-rails'
 gem 'mail_form'
+gem 'net-http'
 gem 'pagy', '~> 3.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'

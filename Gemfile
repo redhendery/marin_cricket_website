@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.4'
+ruby '3.0.1'
 
 gem 'rails', '~> 7.0.2.2'
 
@@ -13,8 +13,7 @@ gem "bulma-rails", "~> 0.9.3"
 gem 'friendly_id'
 gem 'jsbundling-rails'
 gem 'mail_form'
-gem 'net-http'
-gem 'pagy', '~> 3.5'
+gem 'pagy'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'recaptcha', '~> 5.7'

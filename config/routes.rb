@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get '/executives', to: 'static_pages#executives'
   get '/membership', to: 'static_pages#membership'
   get '/sponsors', to: 'static_pages#sponsors'
-  get '/store', to: 'static_pages#store'
+  # Store link not required at this time
+  # get '/store', to: 'static_pages#store'
 
   # User Sign Up and Sign In and Sign Out
   get '/signup', to: 'users#new'

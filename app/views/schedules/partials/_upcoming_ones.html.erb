@@ -35,7 +35,7 @@
         <%= link_to 'Edit This Game', edit_schedule_path(mno),
                 class: 'button is-warning card-footer-item' %>
 
-        <%= link_to 'Delete This Game', mno, method: :delete,
+        <%= button_to 'Delete This Game', mno, method: :delete,
               data: { confirm: 'You sure brah? This game will be PERMANENTLY DELETED from the database.'},
                     class: 'button is-danger card-footer-item' %>
       </footer>

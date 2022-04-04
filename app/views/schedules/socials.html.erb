@@ -79,7 +79,7 @@
               <%= link_to 'Edit Game', edit_schedule_path(mns), class: 'button is-small is-warning is-fullwidth' %>
             </td>
             <td>
-              <%= link_to 'Delete Game', mns, method: :delete,
+              <%= button_to 'Delete Game', mns, method: :delete,
                   data: { confirm: 'You sure brah? This game will be PERMANENTLY DELETED from the database.'},
                                                               class: 'button is-small is-danger is-fullwidth' %>
             </td>

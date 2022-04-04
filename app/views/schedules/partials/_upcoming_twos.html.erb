@@ -36,7 +36,7 @@
                   class: 'button is-warning card-footer-item' %>
         <%= link_to 'Set Lineup', selection_schedule_path(mnt), class:
                                       'button is-info card-footer-item' %>
-        <%= link_to 'Delete Game', mnt, method: :delete,
+        <%= button_to 'Delete Game', mnt, method: :delete,
             data: { confirm: 'You sure brah? This game will be PERMANENTLY DELETED from the database.'},
                               class: 'button is-danger card-footer-item' %>
       </footer>

@@ -36,7 +36,7 @@
   </div>
 
   <div class="column">
-    <%= link_to 'Delete User', user, method: :delete, class: 'button is-danger is-fullwidth',
+    <%= button_to 'Delete User', user, method: :delete, class: 'button is-danger is-fullwidth',
         data: { confirm: "You sure brah? #{user.first_name} #{user.last_name} will be permenantly deleted." } %>
   </div>
 

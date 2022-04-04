@@ -10,7 +10,7 @@
                   class: 'button is-success is-fullwidth' %>
   </div>
   <div class="column">
-    <%= link_to 'Delete This Team', @team, method: :delete,
+    <%= button_to 'Delete This Team', @team, method: :delete,
                 data: { confirm: 'Are you sure?! ' + @team.name +
                 ' will be PERMANENTLY DELETED from the database.'},
                   class: 'button is-danger is-fullwidth' %>

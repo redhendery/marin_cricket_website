@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.1'
+ruby '3.1.1'
 
 gem 'rails', '~> 7.0.2.2'
 
@@ -17,8 +17,8 @@ gem 'pagy'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'recaptcha', '~> 5.7'
-gem 'sassc-rails'
-gem 'sprockets-rails', :require => 'sprockets/railtie'
+# gem 'sassc-rails'
+gem 'sprockets-rails'
 gem 'turbolinks', '~> 5'
 
 group :development, :test do
@@ -43,7 +43,7 @@ group :test do
   gem 'capybara',                 '3.28.0'
   gem 'guard',                    '2.15.0'
   gem 'guard-minitest',           '2.4.6'
-  gem 'minitest',                 '5.14.2'
+  # gem 'minitest',                 '5.14.2'
   gem 'minitest-reporters',       '1.3.8'
   gem 'rails-controller-testing', '1.0.4'
   gem 'selenium-webdriver',       '3.142.4'

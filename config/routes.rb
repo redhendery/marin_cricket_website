@@ -8,15 +8,13 @@ Rails.application.routes.draw do
   get '/executives', to: 'static_pages#executives'
   get '/membership', to: 'static_pages#membership'
   get '/sponsors', to: 'static_pages#sponsors'
-  # Store link not required at this time
-  # get '/store', to: 'static_pages#store'
 
   # User Sign Up and Sign In and Sign Out
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
 
   # Newsletter routes
   resources :newsletters, only: %i[new create]

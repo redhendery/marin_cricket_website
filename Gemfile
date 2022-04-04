@@ -17,7 +17,7 @@ gem 'pagy'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'recaptcha', '~> 5.7'
-# gem 'sassc-rails'
+gem 'sassc-rails'
 gem 'sprockets-rails'
 gem 'turbolinks', '~> 5'
 

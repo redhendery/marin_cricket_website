@@ -107,8 +107,8 @@ class SchedulesController < ApplicationController
 
     def bears_schedule
       bears = Schedule.includes(:home_team, :away_team).where('extract(year from date) = ?', year)
-      away = bears.where(away_team: { id: 2 })
-      home = bears.where(home_team: { id: 2 })
+      away = bears.where(away_team: { id: 39 })
+      home = bears.where(home_team: { id: 39 })
       bears = away + home
       @bears = bears.sort_by &:date
     end

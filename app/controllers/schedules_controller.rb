@@ -123,7 +123,6 @@ class SchedulesController < ApplicationController
 
     def socials_schedule
       socials = Schedule.includes(:home_team, :away_team).where('extract(year from date) = ?', year)
-      away = socials.where(away_team: { id: 3 })
       home = socials.where(home_team: { id: 3 })
       socials = away + home
       @socials = socials.sort_by &:date

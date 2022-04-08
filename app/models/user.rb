@@ -98,4 +98,7 @@ class User < ApplicationRecord
     self.activation_digest = User.digest(activation_token)
   end
 
+  def should_generate_new_friendly_id?
+    slug.blank? || first_name_changed?
+  end
 end

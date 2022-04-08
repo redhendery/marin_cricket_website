@@ -1,8 +1,8 @@
 class SchedulesController < ApplicationController
   before_action :upcoming, only: :index
-  before_action :league_schedule, only: %i[index league]
-  before_action :bears_schedule, only: %i[index bears]
-  before_action :socials_schedule, only: %i[index socials]
+  before_action :league_schedule, only: :league
+  before_action :bears_schedule, only: :bears
+  before_action :socials_schedule, only: :socials
   before_action :admin_user, only: %i[create new edit destroy]
   before_action :logged_in_user, only: %i[game_signup game_withdrawal]
   before_action :set_schedule, only: %i[show edit update destroy game_signup game_withdrawal selection]
@@ -106,25 +106,25 @@ class SchedulesController < ApplicationController
     end
 
     def bears_schedule
-      bears = Schedule.includes(:home_team, :away_team)
-      away = bears.where(away_team: { name: 'Marin Bears T20' })
-      home = bears.where(home_team: { name: 'Marin Bears T20' })
+      bears = Schedule.includes(:home_team, :away_team).where('extract(year from date) = ?', year)
+      away = bears.where(away_team: { id: 2 })
+      home = bears.where(home_team: { id: 2 })
       bears = away + home
       @bears = bears.sort_by &:date
     end
 
     def league_schedule
-      league = Schedule.includes(:home_team, :away_team)
-      away = league.where(away_team: { name: 'Marin CC NCCA' })
-      home = league.where(home_team: { name: 'Marin CC NCCA' })
+      league = Schedule.includes(:home_team, :away_team).where('extract(year from date) = ?', year)
+      away = league.where(away_team: { id: 1 })
+      home = league.where(home_team: { id: 1 })
       league = away + home
       @league = league.sort_by &:date
     end
 
     def socials_schedule
-      socials = Schedule.includes(:home_team, :away_team)
-      away = socials.where(away_team: { name: 'Marin CC Socials' })
-      home = socials.where(home_team: { name: 'Marin CC Socials' })
+      socials = Schedule.includes(:home_team, :away_team).where('extract(year from date) = ?', year)
+      away = socials.where(away_team: { id: 3 })
+      home = socials.where(home_team: { id: 3 })
       socials = away + home
       @socials = socials.sort_by &:date
     end

@@ -1,6 +1,6 @@
 <%= render 'schedules/partials/create_button' if admin_logged_in? %>
 
-<h1 class="title is-1">Marin One Full Schedule for <%= Date.today.year %></h1>
+<h1 class="title is-1">Marin Bears T20 Full Schedule for <%= Date.today.year %></h1>
 
 <div class="table-container">
   <table class="table is-responsive is-hoverable is-fullwidth">
@@ -40,39 +40,39 @@
         <% end %>
       </tr>
     </thead>
-    <% @mno.each_with_index do |mno, index| %>
+    <% @bears.each_with_index do |mnb, index| %>
       <tbody>
         <tr>
           <td>
             <%= index + 1 %>
           </td>
           <td>
-            <%= mno.home_team.name %>
+            <%= mnb.home_team.name %>
           </td>
           <td>
             vs.
           </td>
           <td>
-            <%= mno.away_team.name %>
+            <%= mnb.away_team.name %>
           </td>
           <td>
-            <%= mno.date.strftime('%A, %B %d') %>
+            <%= mnb.date.strftime('%A, %B %d') %>
           </td>
           <td>
-            <%= mno.home_team.home_field %>
+            <%= mnb.home_team.home_field %>
           </td>
           <td>
-            <%= link_to 'Directions', "https://www.google.com/maps?q=#{mno.home_team.home_field}", target: 'blank' %>
+            <%= link_to 'Directions', "https://www.google.com/maps?q=#{mnb.home_team.home_field}", target: 'blank' %>
           </td>
           <td>
-            <%= link_to 'Game Details', schedule_path(mno), class: 'button is-link is-small is-fullwidth' %>
+            <%= link_to 'Game Details', schedule_path(mnb), class: 'button is-link is-small is-fullwidth' %>
           </td>
           <% if admin_logged_in? %>
             <td>
-              <%= link_to 'Edit Game', edit_schedule_path(mno), class: 'button is-small is-warning is-fullwidth' %>
+              <%= link_to 'Edit Game', edit_schedule_path(mnb), class: 'button is-small is-warning is-fullwidth' %>
             </td>
             <td>
-              <%= button_to 'Delete Game', mno, method: :delete,
+              <%= button_to 'Delete Game', mnb, method: :delete,
                   data: { confirm: 'You sure brah? This game will be PERMANENTLY DELETED from the database.'},
                                                               class: 'button is-small is-danger is-fullwidth' %>
             </td>

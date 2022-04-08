@@ -11,4 +11,8 @@ module SchedulesHelper
     date = Date.today
   end
 
+  def year
+    year = Date.today.year
+  end
+
 end

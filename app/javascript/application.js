@@ -6,8 +6,7 @@ require("@rails/activestorage").start()
 
 import "./channels"
 import "./controllers"
-
-
+import "@hotwired/turbo-rails"
 
 (() => {
   var burger = document.querySelector('.burger');

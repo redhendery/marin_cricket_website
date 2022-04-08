@@ -78,15 +78,15 @@ newsletters = Newsletter.create([{
 p "added #{Newsletter.count} newsletters"
 
 teams = Team.create([{
-  name: 'Marin One',
+  name: 'Marin CC NCCA',
   about: 'Competitive team playing in the NCCA league competition.',
   home_field: 'Piper Park, Larkspur',
-  abbreviation: 'mno'
+  abbreviation: 'mnc'
 }, {
-  name: 'Marin Two',
-  about: 'Competitive team playing in the NCCA league competition.',
+  name: 'Marin Bears T20',
+  about: 'Competitive team playing in the NCCA T20 competition.',
   home_field: 'Piper Park, Larkspur',
-  abbreviation: 'MnT'
+  abbreviation: 'MnB'
 }, {
   name: 'Marin Socials',
   about: "Social cricket at it's finest!",
@@ -98,7 +98,7 @@ teams = Team.create([{
   name = Faker::Sports::Basketball.unique.team
   about = Faker::ChuckNorris.fact
   home_field = ['Fremont Park', 'Berkeley Oval', 'Magnusson Park']
-  abbreviation = 'abc'
+  abbreviation = Faker::Name.initials(number: 3)
   Team.create!(
     name: name,
     about: about,

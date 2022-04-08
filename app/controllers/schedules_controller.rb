@@ -1,19 +1,16 @@
 class SchedulesController < ApplicationController
-  before_action :upcoming, :previous, only: :index
-  before_action :mno_schedule, only: %i[index ones]
-  before_action :mnt_schedule, only: %i[index twos]
-  before_action :mns_schedule, only: %i[index socials]
+  before_action :upcoming, only: :index
+  before_action :league_schedule, only: %i[index league]
+  before_action :bears_schedule, only: %i[index bears]
+  before_action :socials_schedule, only: %i[index socials]
   before_action :admin_user, only: %i[create new edit destroy]
   before_action :logged_in_user, only: %i[game_signup game_withdrawal]
   before_action :set_schedule, only: %i[show edit update destroy game_signup game_withdrawal selection]
 
   def index
-    @mno_next = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1))
-    @mno_last = @previous.where(home_team_id: 1).or(@previous.where(away_team_id: 1))
-    @mnt_next = @upcoming.where(home_team_id: 2).or(@upcoming.where(away_team_id: 2))
-    @mnt_last = @previous.where(home_team_id: 2).or(@previous.where(away_team_id: 2))
-    @mns_next = @upcoming.where(home_team_id: 3).or(@upcoming.where(away_team_id: 3))
-    @mns_last = @previous.where(home_team_id: 3).or(@previous.where(away_team_id: 3))
+    @league = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1))
+    @bears = @upcoming.where(home_team_id: 2).or(@upcoming.where(away_team_id: 2))
+    @socials = @upcoming.where(home_team_id: 3).or(@upcoming.where(away_team_id: 3))
   end
 
   def show; end
@@ -44,13 +41,13 @@ class SchedulesController < ApplicationController
 
   def destroy
     @schedule.destroy
-    redirect_to schedules_url
+    redirect_to root_path
     flash[:danger] = 'Game has been deleted'
   end
 
-  def ones; end
-
-  def twos; end
+  def bears; end
+  
+  def league; end
 
   def socials; end
 
@@ -108,24 +105,27 @@ class SchedulesController < ApplicationController
       @upcoming = Schedule.where(date: next_week)
     end
 
-    def previous
-      @previous = Schedule.where(date: last_week).where.not(date: Date.today)
+    def bears_schedule
+      bears = Schedule.includes(:home_team, :away_team)
+      away = bears.where(away_team: { name: 'Marin Bears T20' })
+      home = bears.where(home_team: { name: 'Marin Bears T20' })
+      bears = away + home
+      @bears = bears.sort_by &:date
     end
 
-    def mno_schedule
-      s = Schedule.includes(:home_team, :away_team)
-      mno = s.where(home_team_id: 1) + s.where(away_team_id: 1)
-      @mno = mno.sort_by &:date
+    def league_schedule
+      league = Schedule.includes(:home_team, :away_team)
+      away = league.where(away_team: { name: 'Marin CC NCCA' })
+      home = league.where(home_team: { name: 'Marin CC NCCA' })
+      league = away + home
+      @league = league.sort_by &:date
     end
 
-    def mnt_schedule
-      s = Schedule.includes(:home_team, :away_team)
-      mnt = s.where(home_team_id: 2) + s.where(away_team_id: 2)
-      @mnt = mnt.sort_by &:date
-    end
-
-    def mns_schedule
-      mns = Schedule.includes(:home_team, :away_team).where(teams: { name: 'Marin Socials' })
-      @mns = mns.sort_by &:date
+    def socials_schedule
+      socials = Schedule.includes(:home_team, :away_team)
+      away = socials.where(away_team: { name: 'Marin CC Socials' })
+      home = socials.where(home_team: { name: 'Marin CC Socials' })
+      socials = away + home
+      @socials = socials.sort_by &:date
     end
 end

@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2021_05_08_220249) do
     t.bigint "away_team_id"
     t.bigint "home_team_id"
     t.string "opponent"
-    t.time "start_time", default: "2000-01-01 10:30:00"
+    t.time "start_time", default: "2000-01-01 09:45:00"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"

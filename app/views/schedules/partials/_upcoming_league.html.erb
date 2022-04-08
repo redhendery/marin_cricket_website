@@ -1,42 +1,42 @@
-<% @socials.each do |mns| %>
+<% @league.each do |mnc| %>
   <div class="card no-padding">
     <header class="card-header">
       <h6 class="card-header-title is-centered">
-        Marin Socials (MNS)
+        Marin CC NCCA (MNC)
       </h6>
     </header>
-    <div class="card-content is-vcentered">
+    <div class="card-content">
       <div class="content">
         <p class="subtitle is-5 has-text-weight-bold has-text-centered">
-          <%= mns.home_team.name %>
+          <%= mnc.home_team.name %>
           vs
-          <%= mns.away_team.name %>
+          <%= mnc.away_team.name %>
         </p>
         <p class="negative-margin">
           <span class="has-text-weight-bold">Where: </span>
-          <%= mns.home_team.home_field %>,
-          <%= link_to 'Directions', "https://www.google.com/maps?q=#{mns.home_team.home_field}", target: 'blank' %>
+          <%= mnc.home_team.home_field %>,
+          <%= link_to 'Directions', "https://www.google.com/maps?q=#{mnc.home_team.home_field}", target: 'blank' %>
         </p>
         <p style="margin-top:-18px;">
           <span class="has-text-weight-bold">When: </span>
-          <%= mns.date.strftime('%A, %d %B') %>
+          <%= mnc.date.strftime('%A, %d %B') %>
         </p>
         <p style="margin-top:-18px;">
           <span class="has-text-weight-bold">Time: </span>
-          <%= mns.start_time.strftime('%H:%M %P') %>
+          <%= mnc.start_time.strftime('%H:%M %P') %>
         </p>
       </div>
     </div>
     <footer class="card-footer">
-       <%= link_to 'Game Details', schedule_path(mns), class: 'card-footer-item has-text-weight-bold' %>
+       <%= link_to 'Game Details', schedule_path(mnc), class: 'card-footer-item has-text-weight-bold' %>
     </footer>
     <% if admin_logged_in? %>
       <footer class="card-footer buttons are-medium">
-        <%= link_to 'Edit Game', edit_schedule_path(mns),
+        <%= link_to 'Edit Game', edit_schedule_path(mnc),
                   class: 'button is-warning card-footer-item' %>
-        <%= link_to 'Set Lineup', selection_schedule_path(mns), class:
+        <%= link_to 'Set Lineup', selection_schedule_path(mnc), class:
                                       'button is-info card-footer-item' %>
-        <%= button_to 'Delete Game', mns, method: :delete,
+        <%= button_to 'Delete Game', mnc, method: :delete,
             data: { confirm: 'You sure brah? This game will be PERMANENTLY DELETED from the database.'},
                               class: 'button is-danger card-footer-item' %>
       </footer>

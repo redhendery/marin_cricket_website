@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",
+    "@hotwired/turbo-rails": "^7.1.1",
     "@rails/actioncable": "^7.0.0",
     "@rails/activestorage": "^7.0.0",
     "@rails/ujs": "^7.0.0",

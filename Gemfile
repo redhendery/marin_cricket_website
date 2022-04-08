@@ -19,6 +19,7 @@ gem 'puma', '~> 4.1'
 gem 'recaptcha', '~> 5.7'
 gem 'sassc-rails'
 gem 'sprockets-rails'
+gem 'turbo-rails'
 gem 'turbolinks', '~> 5'
 
 group :development, :test do

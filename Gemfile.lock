@@ -74,7 +74,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
-    brakeman (5.2.1)
+    brakeman (5.2.2)
     builder (3.2.4)
     bulma-rails (0.9.3)
       sassc (~> 2.0)
@@ -140,7 +140,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    msgpack (1.4.5)
+    msgpack (1.5.1)
     nenv (0.3.0)
     net-imap (0.2.3)
       digest
@@ -217,7 +217,7 @@ GEM
       json
     regexp_parser (1.8.2)
     rexml (3.2.5)
-    rubocop (1.26.1)
+    rubocop (1.27.0)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -228,7 +228,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.16.0)
       parser (>= 3.1.1.0)
-    rubocop-minitest (0.18.0)
+    rubocop-minitest (0.19.0)
       rubocop (>= 0.90, < 2.0)
     rubocop-performance (1.13.3)
       rubocop (>= 1.7.0, < 2.0)
@@ -266,6 +266,9 @@ GEM
     thor (1.2.1)
     tilt (2.0.10)
     timeout (0.2.0)
+    turbo-rails (1.0.1)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -321,6 +324,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails
+  turbo-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)

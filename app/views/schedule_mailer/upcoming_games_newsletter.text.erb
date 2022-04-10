@@ -1,55 +1,53 @@
 Hello <%= @newsletter.first_name %>!
 This weekend Marin Cricket Club has <%= @upcoming.count %> games on!
 
-<% if @mno.blank? %>
-Marin One
-Marin One are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.
-<% else %>
-<% @mno.each do |mno| %>
-Marin One
-<% if mno.home_team.name === 'Marin One' %>
-Playing against <%= mno.away_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
-<% else %>
-Playing against <%= mno.home_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at <%= mno.home_team.home_field %>.
-<% end %>
-First ball is at <%= mno.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
-Copy and paste this link into your browser for more information:
-<%= schedule_url(mno) %>
-<% end %>
-<% end %>
-
-
-<% if @mnt.blank? %>
-Marin Two
-Marin Two are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.
-<% else %>
-<% @mnt.each do |mnt| %>
-Marin Two
-<% if mnt.home_team.name === 'Marin Two' %>
-Playing against <%= mnt.away_team.name %> on <%= mnt.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
-<% else %>
-Playing against <%= mnt.home_team.name %> on <%= mnt.date.strftime('%A, %B %d') %> at <%= mnt.home_team.home_field %>
-<% end %>
-First ball is at <%= mnt.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
-Copy and paste this link into your browser for more information:
-<%= schedule_url(mnt) %>
-<% end %>
-<% end %>
-
-
 <% if @mns.blank? %>
-Marin Socials
-The Marin Socials are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.
+Marin CC Socials
+The Marin CC Socials are on a bye, they are probably mowing the lawn, walking the dog or writing another thrilling edition of their IPL fan fiction.
 <% else %>
 <% @mns.each do |mns| %>
 Marin Socials
 <% if mns.home_team.name === 'Marin Socials' %>
 Playing against <%= mns.away_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
 <% else %>
-Playing against <%= mns.home_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at <%= mns.home_team.home_field %>
+Playing against <%= mns.home_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at <%= mns.home_team.home_field %>,
 <% end %>
-First ball is at <%= mns.start_time.strftime('%H:%M %P') %> so get down and support our boys if you can!
-Copy and paste this link into your browser for more information:
+First Ball At: <%= mns.start_time.strftime('%H:%M %P') %>
+Ful game details:
 <%= schedule_url(mns) %>
+<% end %>
+<% end %>
+
+<% if @mnc.blank? %>
+Marin CC NCCA League Team
+The Marin CC NCCA League Team are on a bye, they are busy taking their mothers to lunch and learning how to bake a proper sponge.
+<% else %>
+<% @mnc.each do |mnc| %>
+Marin CC NCCA League Team
+<% if mnc.home_team.name === 'Marin CC NCCA' %>
+Playing against <%= mnc.away_team.name %> on <%= mnc.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
+<% else %>
+Playing against <%= mnc.home_team.name %> on <%= mnc.date.strftime('%A, %B %d') %> at <%= mnc.home_team.home_field %>
+<% end %>
+First Ball At: <%= mnc.start_time.strftime('%H:%M %P') %>
+Ful game details:
+<%= schedule_url(mnc) %>
+<% end %>
+<% end %>
+
+<% if @mnb.blank? %>
+Marin Bears T20
+The Marin Bears are on a bye, they are probably stealing picnic baskets or whatever it is that bears do.
+<% else %>
+<% @mnb.each do |mnb| %>
+Marin CC Socials
+<% if mnb.home_team.name === 'Marin Bears T20' %>
+Playing against <%= mnb.away_team.name %> on <%= mnb.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
+<% else %>
+Playing against <%= mnb.home_team.name %> on <%= mnb.date.strftime('%A, %B %d') %> at <%= mnb.home_team.home_field %>,
+<% end %>
+First Ball At: <%= mnb.start_time.strftime('%H:%M %P') %>
+Ful game details:
+<%= schedule_url(mnb) %>
 <% end %>
 <% end %>

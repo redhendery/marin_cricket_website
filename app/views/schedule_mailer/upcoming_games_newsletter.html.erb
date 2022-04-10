@@ -4,69 +4,13 @@
 <br>
 <hr>
 
-<% if @mno.blank? %>
-  <h1>Marin One</h1>
-  <p>Marin One are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.</p>
-<% else %>
-  <% @mno.each do |mno| %>
-  <h1>Marin One</h1>
-    <% if mno.home_team.name === 'Marin One' %>
-      <p>
-        Playing against <%= mno.away_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
-        <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
-      </p>
-    <% else %>
-      <p>
-        Playing against <%= mno.home_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at <%= mno.home_team.home_field %>.
-      </p>
-    <% end %>
-    <p>
-      First ball is at <%= mno.start_time.strftime('%H:%M %P') %>
-      so get down and support our boys if you can!
-    </p>
-    <p>
-      <%= link_to 'Full game details here!', schedule_url(mno) %>
-    </p>
-  <% end %>
-<% end %>
-<br>
-<hr>
-
-<% if @mnt.blank? %>
-  <h1>Marin Two</h1>
-  <p>Marin Two are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.</p>
-<% else %>
-  <% @mnt.each do |mnt| %>
-  <h1>Marin Two</h1>
-    <% if mnt.home_team.name === 'Marin Two' %>
-      <p>
-        Playing against <%= mnt.away_team.name %> on <%= mnt.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
-        <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
-      </p>
-    <% else %>
-      <p>
-        Playing against <%= mnt.home_team.name %> on <%= mnt.date.strftime('%A, %B %d') %> at <%= mnt.home_team.home_field %>
-        <%= link_to 'Directions!', "https://www.google.com/maps?q=#{mnt.home_team.home_field}", target: 'blank' %>
-      </p>
-    <% end %>
-    <p>
-      First Ball At: <%= mnt.start_time.strftime('%H:%M %P') %>
-    </p>
-    <p>
-      <%= link_to 'Full game details here!', schedule_url(mnt) %>
-    </p>
-  <% end %>
-<% end %>
-<br>
-<hr>
-
 <% if @mns.blank? %>
-  <h1>Marin Socials</h1>
-  <p>The Marin Socials are on a bye, they are probably mowing the lawn, walking the dog or finally writing that novel.</p>
+  <h1>Marin CC Socials</h1>
+  The Marin CC Socials are on a bye, they are probably mowing the lawn, walking the dog or writing another thrilling edition of their IPL fan fiction.</p>
 <% else %>
   <% @mns.each do |mns| %>
-  <h1>Marin Socials</h1>
-    <% if mns.home_team.name === 'Marin Socials' %>
+  <h1>Marin CC Socials</h1>
+    <% if mns.home_team.name === 'Marin CC Socials' %>
       <p>
         Playing against <%= mns.away_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
@@ -82,6 +26,61 @@
     </p>
     <p>
       <%= link_to 'Full game details here!', schedule_url(mns) %>
+    </p>
+    <br>
+    <hr>
+  <% end %>
+<% end %>
+
+<% if @mnc.blank? %>
+  <h1>Marin CC NCCA League Team</h1>
+  <p>The Marin CC NCCA League Team are on a bye, they are busy taking their mothers to lunch and learning how to bake a proper sponge.</p>
+<% else %>
+  <% @mnc.each do |mnc| %>
+  <h1>Marin CC NCCA League Team</h1>
+    <% if mnc.home_team.name === 'Marin CC NCCA' %>
+      <p>
+        Playing against <%= mnc.away_team.name %> on <%= mnc.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
+        <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
+      </p>
+    <% else %>
+      <p>
+        Playing against <%= mnc.home_team.name %> on <%= mnc.date.strftime('%A, %B %d') %> at <%= mnc.home_team.home_field %>
+        <%= link_to 'Directions!', "https://www.google.com/maps?q=#{mnc.home_team.home_field}", target: 'blank' %>
+      </p>
+    <% end %>
+    <p>
+      First Ball At: <%= mnc.start_time.strftime('%H:%M %P') %>
+    </p>
+    <p>
+      <%= link_to 'Full game details here!', schedule_url(mnc) %>
+    </p>
+    <br>
+    <hr>
+  <% end %>
+<% end %>
+
+<% if @mnb.blank? %>
+  <h1>Marin Bears T20</h1>
+  <p>The Marin Bears are on a bye, they are probably stealing picnic baskets or whatever it is that bears do.</p>
+<% else %>
+  <% @mnb.each do |mnb| %>
+  <h1>Marin Bears T20</h1>
+    <% if mnb.home_team.name === 'Marin Bears T20' %>
+      <p>
+        Playing against <%= mnb.away_team.name %> on <%= mnb.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
+        <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
+      </p>
+    <% else %>
+      <p>
+        Playing against <%= mnb.home_team.name %> on <%= mnb.date.strftime('%A, %B %d') %> at <%= mnb.home_team.home_field %>,
+        <%= link_to 'Directions!', "https://www.google.com/maps?q=#{mnb.home_team.home_field}", target: 'blank' %>
+      </p>
+    <% end %>
+    <p>
+      First Ball At: <%= mnb.start_time.strftime('%H:%M %P') %>
+    <p>
+      <%= link_to 'Full game details here!', schedule_url(mnb) %>
     </p>
     <br>
     <hr>

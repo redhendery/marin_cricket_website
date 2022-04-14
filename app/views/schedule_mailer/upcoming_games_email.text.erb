@@ -7,7 +7,7 @@ The Marin Socials are on a bye, they are probably mowing the lawn, walking the d
 <% else %>
 <% @mns.each do |mns| %>
 Marin Socials
-<% if mns.home_team.name === 'Marin Socials' %>
+<% if mns.home_team_id[3] %>
 Playing against <%= mns.away_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
 <% else %>
 Playing against <%= mns.home_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at <%= mns.home_team.home_field %>,
@@ -19,21 +19,21 @@ Match Fee: $20 per player
 <% end %>
 <% end %>
 
-<% if @mnc.blank? %>
-Marin CC NCCA League Team
-The Marin CC NCCA League Team are on a bye, they are busy taking their mothers to lunch and learning how to bake a proper sponge.
+<% if @mno.blank? %>
+Marin 1 NCCA League Team
+The Marin 1 NCCA League Team are on a bye, they are busy taking their mothers to lunch, learning how to bake a proper sponge or writing more riveting IPL fan fiction.
 <% else %>
-<% @mnc.each do |mnc| %>
-Marin CC NCCA League Team
-<% if mnc.home_team.name === 'Marin CC NCCA' %>
-Playing against <%= mnc.away_team.name %> on <%= mnc.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
+<% @mno.each do |mno| %>
+Marin 1 NCCA League Team
+<% if mno.home_team_id[1] %>
+Playing against <%= mno.away_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
 <% else %>
-Playing against <%= mnc.home_team.name %> on <%= mnc.date.strftime('%A, %B %d') %> at <%= mnc.home_team.home_field %>
+Playing against <%= mno.home_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at <%= mno.home_team.home_field %>
 <% end %>
-Players Arrive By: <%= (mnc.start_time - 30.minutes).strftime('%H:%M %P') %>    
-First Ball At: <%= mnc.start_time.strftime('%H:%M %P') %>
+Players Arrive By: <%= (mno.start_time - 30.minutes).strftime('%H:%M %P') %>    
+First Ball At: <%= mno.start_time.strftime('%H:%M %P') %>
 Match Fee: $20 per player
-<%= schedule_url(mnc) %>
+<%= schedule_url(mno) %>
 <% end %>
 <% end %>
 
@@ -43,7 +43,7 @@ The Marin Bears are on a bye, they are probably stealing picnic baskets or whate
 <% else %>
 <% @mnb.each do |mnb| %>
 Marin Socials
-<% if mnb.home_team.name === 'Marin Bears T20' %>
+<% if mnb.home_team_id[39] %>
 Playing against <%= mnb.away_team.name %> on <%= mnb.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
 <% else %>
 Playing against <%= mnb.home_team.name %> on <%= mnb.date.strftime('%A, %B %d') %> at <%= mnb.home_team.home_field %>

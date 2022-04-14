@@ -6,7 +6,7 @@ class TeamsController < ApplicationController
     if admin_logged_in?
       @pagy, @teams = pagy(Team.all, items: 10)
     else
-      @teams = Team.where(id: [1..3])
+      @teams = Team.where(id: [1, 3, 39])
     end
   end
 

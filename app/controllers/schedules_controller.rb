@@ -9,7 +9,7 @@ class SchedulesController < ApplicationController
 
   def index
     @league = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1))
-    @bears = @upcoming.where(home_team_id: 2).or(@upcoming.where(away_team_id: 2))
+    @bears = @upcoming.where(home_team_id: 39).or(@upcoming.where(away_team_id: 39))
     @socials = @upcoming.where(home_team_id: 3).or(@upcoming.where(away_team_id: 3))
   end
 

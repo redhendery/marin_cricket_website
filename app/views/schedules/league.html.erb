@@ -1,6 +1,6 @@
 <%= render 'schedules/partials/create_button' if admin_logged_in? %>
 
-<h1 class="title is-1">Marin CC NCCA League Full Schedule for <%= Date.today.year %></h1>
+<h1 class="title is-1">Marin 1, NCCA League Full Schedule for <%= Date.today.year %></h1>
 
 <div class="table-container">
   <table class="table is-responsive is-hoverable is-fullwidth">
@@ -43,43 +43,43 @@
         <% end %>
       </tr>
     </thead>
-    <% @league.each_with_index do |mnc, index| %>
+    <% @league.each_with_index do |mno, index| %>
       <tbody>
         <tr>
           <td>
             <%= index + 1 %>
           </td>
           <td>
-            <%= mnc.home_team.name %>
+            <%= mno.home_team.name %>
           </td>
           <td>
             vs.
           </td>
           <td>
-            <%= mnc.away_team.name %>
+            <%= mno.away_team.name %>
           </td>
           <td>
-            <%= mnc.date.strftime('%A, %B %d') %>
+            <%= mno.date.strftime('%A, %B %d') %>
           </td>
           <td>
-            <%= mnc.home_team.home_field %>
+            <%= mno.home_team.home_field %>
           </td>
           <td>
-            <%= link_to 'Directions', "https://www.google.com/maps?q=#{mnc.home_team.home_field}", target: 'blank' %>
+            <%= link_to 'Directions', "https://www.google.com/maps?q=#{mno.home_team.home_field}", target: 'blank' %>
           </td>
           <td>
-            <%= link_to 'Game Details', schedule_path(mnc), class: 'button is-link is-small is-fullwidth' %>
+            <%= link_to 'Game Details', schedule_path(mno), class: 'button is-link is-small is-fullwidth' %>
           </td>
           <% if admin_logged_in? %>
             <td>
-              <%= link_to 'Set Lineup', selection_schedule_path(mnc),
+              <%= link_to 'Set Lineup', selection_schedule_path(mno),
                             class: 'button is-info is-small is-fullwidth' %>
             </td>
             <td>
-              <%= link_to 'Edit Game', edit_schedule_path(mnc), class: 'button is-small is-warning is-fullwidth' %>
+              <%= link_to 'Edit Game', edit_schedule_path(mno), class: 'button is-small is-warning is-fullwidth' %>
             </td>
             <td>
-              <%= button_to 'Delete Game', mnc, method: :delete,
+              <%= button_to 'Delete Game', mno, method: :delete,
                   data: { confirm: 'You sure brah? This game will be PERMANENTLY DELETED from the database.'},
                                                               class: 'button is-small is-danger is-fullwidth' %>
             </td>

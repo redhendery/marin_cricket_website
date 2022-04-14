@@ -78,10 +78,10 @@ newsletters = Newsletter.create([{
 p "added #{Newsletter.count} newsletters"
 
 teams = Team.create([{
-  name: 'Marin CC NCCA',
+  name: 'Marin 1',
   about: 'Competitive team playing in the NCCA league competition.',
   home_field: 'Piper Park, Larkspur',
-  abbreviation: 'mnc'
+  abbreviation: 'mno'
 }, {
   name: 'Marin Bears T20',
   about: 'Competitive team playing in the NCCA T20 competition.',

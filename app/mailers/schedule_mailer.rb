@@ -3,7 +3,7 @@ class ScheduleMailer < ApplicationMailer
     @newsletter = newsletter
     @upcoming = Schedule.where(date: Date.current..(Date.current + 7.days))
     @mnb = @upcoming.where(home_team_id: 39).or(@upcoming.where(away_team_id: 39))
-    @mnc = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1))
+    @mno = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1))
     @mns = @upcoming.where(home_team_id: 3).or(@upcoming.where(away_team_id: 3))
     mail to: newsletter.email, subject: 'Marin Cricket Club Games This Weekend!'
   end
@@ -12,7 +12,7 @@ class ScheduleMailer < ApplicationMailer
     @user = user
     @upcoming = Schedule.where(date: Date.current..(Date.current + 7.days))
     @mnb = @upcoming.where(home_team_id: 39).or(@upcoming.where(away_team_id: 39))
-    @mnc = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1))
+    @mno = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1))
     @mns = @upcoming.where(home_team_id: 3).or(@upcoming.where(away_team_id: 3))
     mail to: user.email, subject: 'Marin Cricket Club Games This Weekend!'
   end

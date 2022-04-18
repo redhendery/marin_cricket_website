@@ -7,7 +7,7 @@ The Marin CC Socials are on a bye, they are probably mowing the lawn, walking th
 <% else %>
 <% @mns.each do |mns| %>
 Marin Socials
-<% if mns.home_team_id[3] %>
+<% if mns.home_team.name === 'Marin CC Socials' %>
 Playing against <%= mns.away_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
 <% else %>
 Playing against <%= mns.home_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at <%= mns.home_team.home_field %>,
@@ -24,7 +24,7 @@ The Marin 1 team are on a bye, they are busy taking their mothers to lunch, lear
 <% else %>
 <% @mno.each do |mno| %>
 Marin 1 NCCA League Team
-<% if mno.home_team_id[1] %>
+<% if mno.home_team.name === 'Marin 1' %>
 Playing against <%= mno.away_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
 <% else %>
 Playing against <%= mno.home_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at <%= mno.home_team.home_field %>
@@ -40,8 +40,8 @@ Marin Bears T20
 The Marin Bears are on a bye, they are probably stealing picnic baskets or whatever it is that bears do.
 <% else %>
 <% @mnb.each do |mnb| %>
-Marin CC Socials
-<% if mnb.home_team_name[39] %>
+Marin Bears T20
+<% if mnb.home_team.name === 'Marin Bears T20' %>
 Playing against <%= mnb.away_team.name %> on <%= mnb.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
 <% else %>
 Playing against <%= mnb.home_team.name %> on <%= mnb.date.strftime('%A, %B %d') %> at <%= mnb.home_team.home_field %>,

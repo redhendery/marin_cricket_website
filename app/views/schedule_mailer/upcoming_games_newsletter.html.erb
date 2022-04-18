@@ -10,7 +10,7 @@
 <% else %>
   <% @mns.each do |mns| %>
   <h1>Marin CC Socials</h1>
-    <% if mns.home_team_id[3] %>
+      <% if mns.home_team.name === 'Marin CC Socials' %>
       <p>
         Playing against <%= mns.away_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
@@ -40,7 +40,7 @@
 <% else %>
   <% @mno.each do |mno| %>
   <h1>Marin 1 NCCA League Team</h1>
-    <% if mno.home_team_id[1] %>
+    <% if mno.home_team.name === 'Marin 1' %>
       <p>
         Playing against <%= mno.away_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
@@ -68,7 +68,7 @@
 <% else %>
   <% @mnb.each do |mnb| %>
   <h1>Marin Bears T20</h1>
-    <% if mnb.home_team_id[39] %>
+    <% if mnb.home_team.name === 'Marin Bears T20' %>
       <p>
         Playing against <%= mnb.away_team.name %> on <%= mnb.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
@@ -81,6 +81,7 @@
     <% end %>
     <p>
       First Ball At: <%= mnb.start_time.strftime('%H:%M %P') %>
+    </p>
     <p>
       <%= link_to 'Full game details here!', schedule_url(mnb) %>
     </p>

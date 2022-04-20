@@ -7,7 +7,7 @@
   vs
   <%= @schedule.away_team.name %> (<%= @schedule.away_team.abbreviation %>)
 </h2>
-<div class="columns jusitfy-space-between is-size-5">
+<div class="columns has-text-centered jusitfy-space-between is-size-5">
   <div class="column">
     <p class="has-text-centered">
       <span class="has-text-weight-semibold">
@@ -26,20 +26,25 @@
     </p>
   </div>
 </div>
-<hr>
-<h3 class="title is-3">Total Player Signups: <%= @schedule.selections.count %></h3>
+<hr class="negative-margin">
+
+<h3 class="title is-3 has-text-centered">Total Player Signups: <%= @schedule.selections.count %></h3>
+<div class="columns has-text-centered jusitfy-space-between is-size-5 has-text-centered">
+  <div class="column">
+    <h4 class="title is-5">Paid Signups: <%= @schedule.users.where(paid: true).count %></h4>
+  </div>
+  <div class="column">
+    <h4 class="title is-5">Unpaid Signups: <%= @schedule.users.where(paid: false).count %></h4>
+  </div>
+</div>
 
 <%= form_for(@schedule) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="columns">
-    <div class="column is-half">
-      <h4 class="title is-5">Paid Signups: <%= @schedule.users.where(paid: true).count %></h4>
-      <%= render 'schedules/partials/paid_selection' %>
-    </div>
-    <div class="column">
-      <h4 class="title is-5">Unpaid Signups: <%= @schedule.users.where(paid: false).count %></h4>
-      <%= render 'schedules/partials/unpaid_selection' %>
-    </div>
+  <div class="table-container">
+    <%= render 'schedules/partials/paid_selection' %>
   </div>
-  <%= f.submit 'Save Lineup', class: 'button is-medium is-link is-fullwidth', data: { confirm: 'Confirm Your Lineup? This CANNOT be undone.' } %>
+  <%= 
+    f.submit 'Save Lineup', class: 'button is-medium is-link is-fullwidth', 
+    data: { confirm: 'Confirm Your Lineup? This CANNOT be undone.' } 
+  %>
 <% end %>

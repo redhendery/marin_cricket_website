@@ -1,8 +1,8 @@
 class SchedulesController < ApplicationController
-  before_action :upcoming, only: :index
-  before_action :league_schedule, only: :league
   before_action :bears_schedule, only: :bears
+  before_action :league_schedule, only: :league
   before_action :socials_schedule, only: :socials
+  before_action :upcoming, only: :index
   before_action :admin_user, only: %i[create new edit destroy]
   before_action :logged_in_user, only: %i[game_signup game_withdrawal]
   before_action :set_schedule, only: %i[show edit update destroy game_signup game_withdrawal selection]

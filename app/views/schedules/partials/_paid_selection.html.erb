@@ -27,10 +27,18 @@
           <% end %>
         </td>
         <td>
-          <%= user.selections.count - 1 %>
+          <% if user.selections.count === 1 %>
+            N/A
+          <% else %>
+            <%= user.selections.count - 1 %>
+          <% end %>
         </td>
         <td>
-          <%= user.selections[-2].schedule.date.strftime('%b %d') %>
+          <% if user.selections.count === 1 %>
+            N/A
+          <% else %>
+            <%= user.selections[-2].schedule.date.strftime('%b %d') %>
+          <% end %>
         </td>
         <td>
           <%= user.role %>

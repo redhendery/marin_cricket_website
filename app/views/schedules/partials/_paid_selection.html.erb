@@ -30,7 +30,7 @@
           <% if user.selections.count === 1 %>
             N/A
           <% else %>
-            <%= user.selections.count - 1 %>
+            <%= user.selections.where('extract(year from created_at) = ?', year).count - 1 %>
           <% end %>
         </td>
         <td>

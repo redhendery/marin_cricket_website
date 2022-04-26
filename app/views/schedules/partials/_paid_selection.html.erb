@@ -9,6 +9,7 @@
       <th><abbr>Games Played</abbr></th>
       <th><abbr>Last Played</abbr></th>
       <th><abbr>Role</abbr></th>
+      <th><abbr>Other Sign Ups?</abbr></th>
       <th><abbr>Select</abbr></th>
     </tr>
   </thead>
@@ -42,6 +43,11 @@
         </td>
         <td>
           <%= user.role %>
+        </td>
+        <td>
+          <% if user.selections.where(created_at: (Date.today - 7.days)..Date.tomorrow).count >= 2 %>
+            Yes
+          <% end %>
         </td>
         <td>
           <%= check_box_tag 'schedule[user_ids][]', user.id, @schedule.user_ids.include?(user.id), id: dom_id(user) %>

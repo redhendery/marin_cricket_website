@@ -1,0 +1,18 @@
+<div class="columns buttons are-medium">
+  <% unless current_page?(edit_event_path) %>
+    <div class="column">
+      <%= link_to 'Edit Event', edit_event_path(@event),
+                    class: 'button is-warning is-fullwidth' %>
+    </div>
+  <% end %>
+  <div class="column">
+    <%= link_to 'Create New Event', new_event_path,
+                  class: 'button is-success is-fullwidth' %>
+  </div>
+  <div class="column">
+    <%= button_to 'Delete Event', @event, turbo_method: :delete,
+                turbo_confirm: 'Are you sure?! ' + @event.title +
+                ' will be PERMANENTLY DELETED from the database.',
+                  class: 'button is-danger is-fullwidth' %>
+  </div>
+</div>

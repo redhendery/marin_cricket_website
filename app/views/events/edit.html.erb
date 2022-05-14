@@ -1,0 +1,21 @@
+<%= provide(:title, 'Edit Event') %>
+<% provide(:button_text, 'Save Event Changes') %>
+
+<% if admin_logged_in? %>
+	<div class="columns buttons are-medium">
+	  <div class="column">
+	    <%= link_to 'Create New Event', new_event_path,
+	                  class: 'button is-success is-fullwidth' %>
+	  </div>
+	  <div class="column is-offset-2">
+	    <%= button_to 'Delete This Event', @event, turbo_method: :delete,
+			                turbo_confirm: 'Are you sure?! ' + @event.title +
+			                ' will be PERMANENTLY DELETED from the database.',
+							                  class: 'button is-danger is-fullwidth' %>
+	  </div>
+	</div>
+<% end %>
+
+<h1 class="title is-1">Edit Event</h1>
+
+<%= render 'events/partials/form' %>

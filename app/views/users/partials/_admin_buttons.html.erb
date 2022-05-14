@@ -10,7 +10,6 @@
 <% end %>
 
 <div class="columns is-multiline is-vcentered buttons are-medium">
-
   <div class="column is-4">
     <% if user.paid? %>
       <%= link_to 'Paid Fees', not_paid_user_path(user), class: 'button is-link is-fullwidth',
@@ -22,11 +21,8 @@
   </div>
 
   <div class="column is-4">
-    <% if user.activated? %>
-      <%= link_to 'Active User', deactivate_account_user_path(user), class: 'button is-primary is-fullwidth',
-                    data: { confirm: "#{user.first_name} #{user.last_name} will be deactivated, they will no longer receive game emails." } %>
-    <% else %>
-       <%= link_to 'Inactivate User', activate_account_user_path(user), class: 'button is-fullwidth',
+    <% unless user.activated? %>
+       <%= link_to 'Inactive User', activate_account_user_path(user), class: 'button is-primary is-fullwidth',
                      data: { confirm: "#{user.first_name} #{user.last_name} will be activated, they will now receive game emails." } %>
     <% end %>
   </div>

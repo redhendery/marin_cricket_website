@@ -1,7 +1,4 @@
 class SchedulesController < ApplicationController
-  before_action :bears_schedule, only: :bears
-  before_action :league_schedule, only: :league
-  before_action :socials_schedule, only: :socials
   before_action :upcoming, only: :index
   before_action :admin_user, only: %i[create new edit destroy]
   before_action :logged_in_user, only: %i[game_signup game_withdrawal]
@@ -45,11 +42,26 @@ class SchedulesController < ApplicationController
     flash[:danger] = 'Game has been deleted'
   end
 
-  def bears; end
+  def bears
+    bears = Schedule.includes(:home_team, :away_team).where('extract(year from date) = ?', year)
+    away = bears.where(away_team: { id: 39 })
+    home = bears.where(home_team: { id: 39 })
+    bears = away + home
+    @bears = bears.sort_by &:date
+  end
   
-  def league; end
+  def league
+    league = Schedule.includes(:home_team, :away_team).where('extract(year from date) = ?', year)
+    away = league.where(away_team: { id: 1 })
+    home = league.where(home_team: { id: 1 })
+    league = away + home
+    @league = league.sort_by &:date
+  end
 
-  def socials; end
+  def socials
+    socials = Schedule.includes(:home_team, :away_team).where('extract(year from date) = ?', year)
+    @socials = socials.where(home_team: { id: 3 }).sort_by &:date
+  end
 
   def game_signup
     @selection = Selection.find_by(schedule_id: @schedule.id, user_id: current_user.id)
@@ -103,27 +115,5 @@ class SchedulesController < ApplicationController
 
     def upcoming
       @upcoming = Schedule.where(date: next_week)
-    end
-
-    def bears_schedule
-      bears = Schedule.includes(:home_team, :away_team).where('extract(year from date) = ?', year)
-      away = bears.where(away_team: { id: 39 })
-      home = bears.where(home_team: { id: 39 })
-      bears = away + home
-      @bears = bears.sort_by &:date
-    end
-
-    def league_schedule
-      league = Schedule.includes(:home_team, :away_team).where('extract(year from date) = ?', year)
-      away = league.where(away_team: { id: 1 })
-      home = league.where(home_team: { id: 1 })
-      league = away + home
-      @league = league.sort_by &:date
-    end
-
-    def socials_schedule
-      socials = Schedule.includes(:home_team, :away_team).where('extract(year from date) = ?', year)
-      socials = socials.where(home_team: { id: 3 })
-      @socials = socials.sort_by &:date
     end
 end

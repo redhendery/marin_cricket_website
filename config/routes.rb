@@ -47,4 +47,7 @@ Rails.application.routes.draw do
       get :game_signup, :game_withdrawal, :selection
     end
   end
+
+  # Event routes, signup / withdrawal links
+  resources :events
 end

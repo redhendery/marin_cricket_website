@@ -10,9 +10,9 @@
                   class: 'button is-success is-fullwidth' %>
   </div>
   <div class="column">
-    <%= button_to 'Delete This Team', @team, method: :delete,
-                data: { confirm: 'Are you sure?! ' + @team.name +
-                ' will be PERMANENTLY DELETED from the database.'},
+    <%= button_to 'Delete This Team', @team, turbo_method: :delete,
+                turbo_confirm: 'Are you sure?! ' + @team.name +
+                ' will be PERMANENTLY DELETED from the database.',
                   class: 'button is-danger is-fullwidth' %>
   </div>
 </div>

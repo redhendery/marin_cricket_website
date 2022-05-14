@@ -1,13 +1,11 @@
 // Entry point for the build script in your package.json
 require("@rails/ujs").start()
-require("turbolinks").start()
 require("@rails/activestorage").start()
-// require("channels")
 
-import "./channels"
-import "./controllers"
 import "@hotwired/turbo-rails"
+import "./controllers"
 
+// Navbar specific JS
 (() => {
   var burger = document.querySelector('.burger');
   var nav = document.querySelector('#'+burger.dataset.target);

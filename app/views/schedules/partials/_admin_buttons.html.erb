@@ -1,5 +1,5 @@
 <div class="columns buttons are-medium">
-  <% unless current_page?(selection_schedule_path) %>
+  <% unless current_page?(selection_schedule_path) || @schedule.selections.blank? %>
     <div class="column">
       <%= link_to 'Set Lineup', selection_schedule_path,
                     class: 'button is-info is-fullwidth' %>
@@ -18,7 +18,8 @@
   </div>
   <div class="column">
     <%= button_to 'Delete This Game', @schedule, method: :delete,
-                data: { confirm: 'Are you sure?! GAME AND USER SELECTION SIGNUPS will be PERMANENTLY DELETED from the database.'},
-                  class: 'button is-danger is-fullwidth' %>
+                data: { confirm: 'Are you sure?! GAME AND USER SELECTION
+                 SIGNUPS will be PERMANENTLY DELETED from the database.'},
+                                  class: 'button is-danger is-fullwidth' %>
   </div>
 </div>

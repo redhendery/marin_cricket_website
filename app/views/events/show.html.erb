@@ -1,0 +1,39 @@
+<% provide(:title, @event.title) %>
+
+<%= render 'events/partials/admin_buttons' if admin_logged_in? %>
+
+<h2 class="title is-2 has-text-centered"><%= @event.title %></h2>
+
+<div class="columns has-text-centered jusitfy-space-between is-size-5">
+  <div class="column">
+    <p class="has-text-centered">
+      <span class="has-text-weight-semibold">Event Date:</span>
+      <%= @event.date.strftime('%A, %B %d, %Y') %>
+    </p>
+  </div>
+
+  <div class="column">
+    <p class="has-text-centered">
+      <span class="has-text-weight-semibold">Location:</span>
+      <%= @event.location %>
+    </p>
+  </div>
+  <div class="column">
+    <p class="has-text-centered">
+      <span class="has-text-weight-semibold">Starts</span>
+      <%= @event.start_time.strftime('%H:%M%P') %>
+      and ends
+      <% if @event.end_time.nil? %>
+        about then
+      <% else %>
+        at <%= @event.end_time.strftime('%H:%M%P') %>
+      <% end %>
+    </p>
+  </div>
+</div>
+<hr class="negative-margin">
+
+<h3 class="title is-3">About:</h3>
+<p class="negative-margin">
+  <%= @event.about %>
+</p>

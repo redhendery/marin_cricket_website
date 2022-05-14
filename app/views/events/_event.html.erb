@@ -1,0 +1,57 @@
+<ul>
+  <div class="columns is-vcentered buttons are-medium">
+    <div class="column is-7">
+      <%= link_to event do %>
+        <p class="is-size-4 has-text-weight-bold">
+          <%= event.title %>
+        </p>
+      <% end %>
+      <p class="negative-margin">
+        <span class="has-text-weight-semibold">About:</span>
+        <%= event.about.truncate(100, ommission: '...') %>
+      </p>
+      <p class="negative-margin">
+        <span class="has-text-weight-semibold">Date:</span>
+        <%= event.date.strftime('%A, %B %d, %Y') %>
+      </p>
+      <p class="negative-margin">
+        <span class="has-text-weight-semibold">Location:</span>
+        <%= event.location %>
+      </p>
+      <p class="negative-margin">
+        <span class="has-text-weight-semibold">Start Time:</span>
+        <%= event.start_time.strftime('%H:%M%P') %>
+      </p>
+      <p class="negative-margin">
+        <span class="has-text-weight-semibold">End Time:</span>
+        <% if event.end_time.nil? %>
+          N / A
+        <% else %>
+          <%= event.end_time.strftime('%H:%M%P') %>
+        <% end %>
+      </p>
+    </div>
+
+    <% if admin_logged_in? %>
+      <div class="column">
+        <%= link_to 'Event Details!', event_path(event),
+            class: 'button is-link is-fullwidth' %>
+      </div>
+      <div class="column">
+        <%= link_to 'Edit Event', edit_event_path(event),
+                class: 'button is-warning is-fullwidth' %>
+      </div>
+      <div class="column">
+        <%= button_to 'Delete Event', event, method: :delete,
+            data: { confirm: 'Are you sure?! ' + event.title +
+            ' will be PERMANENTLY DELETED from the database.'},
+                        class: 'button is-danger is-fullwidth' %>
+      </div>
+    <% else %>
+      <div class="column is-offset-3">
+        <%= link_to 'Event Details!', event_path(event), class: 'button is-link is-fullwidth' %>
+      </div>
+    <% end %>
+  </div>
+</ul>
+<hr>

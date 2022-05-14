@@ -3,14 +3,14 @@
   "private": true,
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",
+    "@hotwired/stimulus": "^3.0.1",
     "@hotwired/turbo-rails": "^7.1.1",
     "@rails/actioncable": "^7.0.0",
     "@rails/activestorage": "^7.0.0",
-    "@rails/ujs": "^7.0.0",
+    "@rails/ujs": "^7.0.2-4",
     "bulma": "^0.9.3",
     "esbuild": "^0.14.23",
     "stimulus": "^2.0.0",
-    "turbolinks": "^5.2.0",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2"
   },

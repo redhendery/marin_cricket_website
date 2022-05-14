@@ -11,7 +11,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "bulma-rails", "~> 0.9.3"
 gem 'friendly_id'
-gem 'jsbundling-rails'
+gem "importmap-rails"
 gem 'mail_form'
 gem 'pagy'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -19,8 +19,8 @@ gem 'puma', '~> 4.1'
 gem 'recaptcha', '~> 5.7'
 gem 'sassc-rails'
 gem 'sprockets-rails'
+gem 'stimulus-rails'
 gem 'turbo-rails'
-gem 'turbolinks', '~> 5'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

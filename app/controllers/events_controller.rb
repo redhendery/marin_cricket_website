@@ -1,57 +1,64 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %w[show edit update destroy]
-  before_action :admin_user, only: %w[create new edit update destroy]
-  
+  before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :admin_user, only: %i[ create new edit update destroy ]
+
+  # GET /events
   def index
     @events = Event.where("date>=?", Date.today).sort_by &:date
   end
 
+  # GET /events/1
+  def show; end
+
+  # GET /events/new
   def new
     @event = Event.new
   end
 
-  def create
-    @event = Event.new(event_params)
-    if @event.save
-      redirect_to @event
-    else
-      render 'new'
-    end
-  end
-
-  def show; end
-
+  # GET /events/1/edit
   def edit; end
 
-  def update
-    if @event.update(event_params)
-      flash[:success] = 'Event successfully updated!'
+  # POST /events
+  def create
+    @event = Event.new(event_params)
+
+    if @event.save
       redirect_to @event
+      flash[:success] = 'Event was successfully created'
     else
-      render 'edit'
+      render :new, status: :unprocessable_entity
     end
   end
 
+  # PATCH/PUT /events/1
+  def update
+    if @event.update(event_params)
+      redirect_to @event
+      flash[:success] = 'Event was successfully updated'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /events/1
   def destroy
     @event.destroy
-    redirect_to events_url
-    flash[:danger] = @event.name + ' has been deleted.'
+    redirect_to events_url 
+    flash[:danger] = 'Event was successfully deleted'
   end
 
   private
-
-    def event_params
-      params.require(:event).permit(:about, :date, :end_time, :location, :start_time, :title)
-    end
-
+    # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.friendly.find(params[:id])
     end
 
-    def admin_user
-      if admin_logged_in?
-      else redirect_to events_url
-      end
+    # Only allow a list of trusted parameters through.
+    def event_params
+      params.require(:event).permit(:date, :start_time, :end_time, :title, :location, :about)
     end
 
+    def admin_user
+      redirect_to events_url unless admin_logged_in?
+    end
 end

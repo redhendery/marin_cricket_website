@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
+  # Team specific routes
+  resources :teams
+
   # Newsletter routes
   resources :newsletters, only: %i[new create]
   get 'newsletters/remove'
@@ -36,8 +39,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :teams
-
+  # Event routes, signup / withdrawal links
+  resources :events
+  
   # Schedule routes for individual teams, game signup / withdrawl and selections
   resources :schedules do
     collection do
@@ -48,6 +52,4 @@ Rails.application.routes.draw do
     end
   end
 
-  # Event routes, signup / withdrawal links
-  resources :events
 end

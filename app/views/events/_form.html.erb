@@ -1,6 +1,6 @@
-<%= form_with model: @event, local: true do |f| %>
+<%= form_with(model: event) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-
+ 
   <div class="columns is-5">
     <div class="column">
       <div class="field">
@@ -53,4 +53,3 @@
   </div>
 
 <% end %>
-

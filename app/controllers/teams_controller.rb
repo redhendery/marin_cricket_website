@@ -53,8 +53,6 @@ class TeamsController < ApplicationController
     end
 
     def admin_user
-      if admin_logged_in?
-      else redirect_to teams_url
-      end
+      redirect_to teams_url unless admin_logged_in?
     end
 end

@@ -108,9 +108,7 @@ class SchedulesController < ApplicationController
     end
 
     def admin_user
-      if admin_logged_in?
-      else redirect_to schedules_url
-      end
+      redirect_to schedules_url unless admin_logged_in?
     end
 
     def upcoming

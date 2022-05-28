@@ -11,6 +11,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "bulma-rails", "~> 0.9.3"
 gem 'friendly_id'
+gem 'jsbundling-rails'
 gem "importmap-rails"
 gem 'mail_form'
 gem 'pagy'

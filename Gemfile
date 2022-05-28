@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.0'
+ruby '3.1.2'
 
 gem 'rails', '~> 7.0.2.3'
 
@@ -30,7 +30,7 @@ end
 
 group :development do
   gem 'brakeman'
-  gem 'bullet', '~> 6.1.0'
+  # gem 'bullet', '~> 6.1.0'
   gem 'listen', '~> 3.2'
   gem 'rubocop'
   gem 'rubocop-minitest', require: false

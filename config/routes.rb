@@ -40,7 +40,11 @@ Rails.application.routes.draw do
   end
 
   # Event routes, signup / withdrawal links
-  resources :events
+  resources :events do
+    member do
+      get :event_signup, :event_withdrawal
+    end
+  end
   
   # Schedule routes for individual teams, game signup / withdrawl and selections
   resources :schedules do

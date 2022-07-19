@@ -1,0 +1,12 @@
+<p>Hello <%= @user.first_name %>!</p>
+
+<p>Marin Cricket Club is hosting <%= @event.title %> on <%= @event.date.strftime('%A, %B %d, %Y') %>!</p>
+<p>When: <%= @event.date.strftime('%A, %B %d, %Y') %></p>
+<p>Where: <%= @event.location %></p>
+
+<p>
+  <%= link_to 'Full event details here!', event_url(@event) %>
+</p>
+<p>
+  <%= link_to 'Sign up to attend here!', event_signup_event_url(@event) %>
+</p>

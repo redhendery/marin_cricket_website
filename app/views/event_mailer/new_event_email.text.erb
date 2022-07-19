@@ -1,0 +1,9 @@
+Hello <%= @user.first_name %>!
+
+Marin Cricket Club is hosting <%= @event.title %> on <%= @event.date.strftime('%A, %B %d, %Y') %>!
+When: <%= @event.date.strftime('%A, %B %d, %Y') %>
+Where: <%= @event.location %>
+
+<%= event_url(@event) %>
+
+<%= event_signup_event_url(@event) %>

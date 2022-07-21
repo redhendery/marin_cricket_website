@@ -27,7 +27,7 @@ users = User.create([{
   password: 'iammike',
   password_confirmation: 'iammike',
   admin: false,
-  role: 'Batsmen',
+  role: 'Batter',
   bats: 'Right',
   bowls: 'Left',
   profile: 'I am Mike and I am a lion tamer.',
@@ -43,7 +43,7 @@ users = User.create([{
   password = 'password'
   bats = 'Right'
   bowls = 'Left'
-  role = ['Batsmen', 'Bolwer', 'All Rounder', 'Wicket Keeper']
+  role = ['Batter', 'Bolwer', 'All Rounder', 'Wicket Keeper']
   profile = Faker::ChuckNorris.fact
   admin = false
   paid = Faker::Boolean.boolean(true_ratio: 0.5)

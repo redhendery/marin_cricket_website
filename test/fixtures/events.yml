@@ -4,8 +4,13 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
+one:
+  title: Ham Sandwhich,
+  location: Space Center,
+  date: Date.today + 1.week,
+  start_time: Time.now,
+  end_time: Time.now + 2.hours,
+  about: about about about about about about about about about about
+
+two:
 # column: value

@@ -1,0 +1,15 @@
+<p>Hello <%= @user.first_name %>,</p>
+
+<p>
+  We regret to inform you that Marin Cricket Club event <%= @event.title %> on <%= @event.date.strftime('%A, %B %d, %Y') %> has been cancelled.
+</p>
+<p>
+  Check out the <%= link_to 'event schedule', events_url %> to see what else is upcoming.
+</p>
+
+<p>
+  Have a nice day,
+</p>
+<p>
+  Marin Cricket Club
+</p>

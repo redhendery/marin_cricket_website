@@ -1,20 +1,21 @@
 class EventMailer < ApplicationMailer
 
-	def new_event_email(user, event, newsletter)
+	def new_event_email(user, event)
 		@user = user
 		@event = event
-		@newsletter = newsletter
-		mail to: user.email, to: newsletter.email, subject: 'Upcoming MCC Event!'
+		mail to: user.email, subject: 'Upcoming MCC Event!'
 	end
 
-	def event_reminder 
-	end
-
-	def event_cancelled_email
+	def event_reminder_email(user, event)
 		@user = user
 		@event = event
-		@newsletter = newsletter
-		mail to: user.email, to: newsletter.email, subject: '*** CANCELLED Upcoming MCC Event! CANCELLED ***'
+		mail to: user.email, subject: 'Reminder: Upcoming MCC Event!'
+	end
+
+	def event_cancelled_email(user, event)
+		@user = user
+		@event = event
+		mail to: user.email, subject: '*** CANCELLED Upcoming MCC Event! CANCELLED ***'
 	end
 
 	def event_signup_email

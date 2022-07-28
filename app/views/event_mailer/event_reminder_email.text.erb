@@ -1,8 +1,8 @@
 Hello <%= @user.first_name %>!
 
-Marin Cricket Club is hosting <%= @event.title %> on <%= @event.date.strftime('%A, %B %d, %Y') %>!
-
+Just a reminder that on <%= @event.date.strftime('%A, %B %d, %Y') %> Marin Cricket Club is hosting <%= @event.title %>!
 Where: <%= @event.location %>
+
 Time: <%= @event.start_time.strftime('%H:%M%P') %> and ends <% if @event.end_time.nil? %> about then <% else %> at <%= @event.end_time.strftime('%H:%M%P') %> <% end %>
 
 What: <%= @event.about %>

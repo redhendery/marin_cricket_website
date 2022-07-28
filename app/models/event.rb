@@ -4,10 +4,24 @@ class Event < ApplicationRecord
 
   validates :about, :date, :end_time, :location, :start_time, :title, presence: true
 
-  def new_event
-    users = User.where(activated: true).pluck(:email) + Newsletter.pluck(:email)
+  def new_event_email
+    users = User.where(activated: true) + Newsletter.all
     users.each do |user|
-      EventMailer.send_new_event_email(user, self).deliver_now
+      EventMailer.new_event_email(user, self).deliver_now
+    end
+  end
+
+  def event_reminder_email
+    users = User.where(activated: true) + Newsletter.all
+    users.each do |user|
+      EventMailer.event_reminder_email(user, self).deliver_now
+    end
+  end
+
+  def event_cancelled_email
+    users = User.where(activated: true) + Newsletter.all
+    users.each do |user|
+      EventMailer.event_cancelled_email(user, self).deliver_now
     end
   end
 

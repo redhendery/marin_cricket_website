@@ -10,9 +10,9 @@
                   class: 'button is-success is-fullwidth' %>
   </div>
   <div class="column">
-    <%= button_to 'Delete Event', @event, turbo_method: :delete,
-                turbo_confirm: 'Are you sure?! ' + @event.title +
+    <%= button_to 'Delete Event', @event, method: :delete,
+                confirm: 'Are you sure?! ' + @event.title +
                 ' will be PERMANENTLY DELETED from the database.',
-                  class: 'button is-danger is-fullwidth' %>
+                            class: 'button is-danger is-fullwidth' %>
   </div>
 </div>

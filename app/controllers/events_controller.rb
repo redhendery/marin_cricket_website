@@ -23,8 +23,9 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
+      @event.new_event_email
       redirect_to @event
-      flash[:success] = 'Event was successfully created'
+      flash[:success] = 'Event was successfully created and you emailed the whole club about it'
     else
       render :new, status: :unprocessable_entity
     end
@@ -43,8 +44,9 @@ class EventsController < ApplicationController
   # DELETE /events/1
   def destroy
     @event.destroy
+    @event.event_cancelled_email
     redirect_to events_url 
-    flash[:danger] = 'Event was successfully deleted'
+    flash[:danger] = 'Event was deleted and you emailed the Club to tell them.'
   end
 
   private

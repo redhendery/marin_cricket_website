@@ -460,7 +460,7 @@ end
 5.times do |event|
   title = Faker::Book.title
   location = Faker::Address.street_name
-  date = Faker::Date.between(from: Date.today + 7.days, to: 3.months.from_now)
+  date = Faker::Date.between(from: Date.today, to: 3.months.from_now)
   start_time = Time.now - 6.hours
   end_time = Time.now - 4.hours
   about = Faker::Movies::PrincessBride.quote

@@ -7,8 +7,9 @@ class EventMailerPreview < ActionMailer::Preview
 	end
 
 	def event_reminder_email
-		event = Event.first
 		user = User.second
+    Event.last.update(date: Date.today + 5.days)
+    event = Event.last
 		EventMailer.event_reminder_email(user, event)
 	end
 

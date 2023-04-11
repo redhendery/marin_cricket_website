@@ -14,5 +14,4 @@ module SchedulesHelper
   def year
     year = Date.today.year
   end
-
 end

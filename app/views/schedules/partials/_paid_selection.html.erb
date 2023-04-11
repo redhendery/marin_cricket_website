@@ -30,15 +30,19 @@
         <td>
           <% if user.selections.count === 1 %>
             N/A
-          <% else %>
+          <% elsif user.selections.where(created_at: (Date.today - 7.days)..Date.tomorrow).count >= 2 %>
+            <%= user.selections.where('extract(year from created_at) = ?', year).count - 2 %>
+          <% elsif %>
             <%= user.selections.where('extract(year from created_at) = ?', year).count - 1 %>
           <% end %>
         </td>
         <td>
           <% if user.selections.count === 1 %>
             N/A
-          <% else %>
+          <% elsif year == user.selections[-2].schedule.date.year %>
             <%= user.selections[-2].schedule.date.strftime('%b %d') %>
+          <% else %>
+            N/A
           <% end %>
         </td>
         <td>

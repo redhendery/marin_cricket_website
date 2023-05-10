@@ -7,14 +7,14 @@
       <div class="field">
         <%= f.label :home_team, class: 'label' %>
         <span class="select">
-          <%= f.collection_select :home_team_id, Team.all, :id, :name, prompt: true,
+          <%= f.collection_select :home_team_id, Team.all.order(name: :asc), :id, :name, prompt: true,
                   required: true, class: 'select', placeholder: 'Name of Home Team' %>
         </span>
       </div>
       <div class="field">
         <%= f.label :away_team, class: 'label' %>
         <span class="select">
-          <%= f.collection_select :away_team_id, Team.all, :id, :name, prompt: true,
+          <%= f.collection_select :away_team_id, Team.all.order(name: :asc), :id, :name, prompt: true,
                   required: true, class: 'select', placeholder: 'Name of Away Team' %>
         </span>
       </div>

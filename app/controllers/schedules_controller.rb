@@ -5,9 +5,9 @@ class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[show edit update destroy game_signup game_withdrawal selection]
 
   def index
-    @league = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1))
-    @bears = @upcoming.where(home_team_id: 39).or(@upcoming.where(away_team_id: 39))
-    @socials = @upcoming.where(home_team_id: 3).or(@upcoming.where(away_team_id: 3))
+    @league = @upcoming.where(home_team_id: 1).or(@upcoming.where(away_team_id: 1)).order(:date)
+    @bears = @upcoming.where(home_team_id: 39).or(@upcoming.where(away_team_id: 39)).order(:date)
+    @socials = @upcoming.where(home_team_id: 3).or(@upcoming.where(away_team_id: 3)).order(:date)
   end
 
   def show; end

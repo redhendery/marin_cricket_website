@@ -2,42 +2,49 @@
 
 <p>This weekend Marin Cricket Club has <%= @upcoming.count %> games on!</p>
 <p>
-  Selection priorty is given to paid club members in every instance. Pay your <%= link_to 'dues here', membership_url %>.
+  Selection <strong>priorty is given to paid club members</strong> in every instance. Pay your <%= link_to 'dues here', membership_url %>.
 </p>
 <br>
 <hr>
 
 <% if @mns.blank? %>
-  <h1>Marin CC Socials</h1>
-  The Marin CC Socials are on a bye, they are probably mowing the lawn, walking the dog or writing another thrilling edition of their IPL fan fiction.</p>
+  <h1>Marin Socials</h1>
+  The Socials are on a bye, they are probably mowing the lawn, walking the dog or writing another thrilling edition of their IPL fan fiction.</p>
 <% else %>
-  <% @mns.each do |mns| %>
-  <h1>Marin CC Socials</h1>
-      <% if mns.home_team.name === 'Marin CC Socials' %>
+  <% @mns.order(:date).each do |mns| %>
+    <% if mns.home_team.name === 'Marin CC Socials' %>
+      <h1>Marin Socials vs. <%= mns.away_team.name %></h1>
       <p>
-        Playing against <%= mns.away_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
+        <strong>Where: </strong>Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
       </p>
-    <% else %>
       <p>
-        Playing against <%= mns.home_team.name %> on <%= mns.date.strftime('%A, %B %d') %> at <%= mns.home_team.home_field %>,
+        <strong>When: </strong><%= mns.date.strftime('%A, %B %d') %>
+      </p>
+    <% else %>
+      <h1>Marin Socials vs. <%= mns.home_team.name %></h1>
+      <p>
+        <strong>Where: </strong><%= mns.home_team.home_field %>,
         <%= link_to 'Directions!', "https://www.google.com/maps?q=#{mns.home_team.home_field}", target: 'blank' %>
       </p>
+    <p>
+      <strong>When: </strong><%= mns.date.strftime('%A, %B %d') %>
+    </p>
     <% end %>
     <p>
-      Players Arrive By: <%= (mns.start_time - 30.minutes).strftime('%H:%M %P') %>
+      <strong>Players Arrive By:</strong> <%= (mns.start_time - 30.minutes).strftime('%H:%M %P') %>
     </p>
     <p>
-      First Ball At: <%= mns.start_time.strftime('%H:%M %P') %>
+      <strong>First Ball At:</strong> <%= mns.start_time.strftime('%H:%M %P') %>
     </p>
     <p>
-      Match Fee: $20 per player
-    </p>
-    <p>
-      <%= link_to 'Full game details here!', schedule_url(mns) %>
+      <strong>Match Fee:</strong> $20 per player
     </p>
     <p>
       <%= link_to 'Sign up to play here!', game_signup_schedule_url(mns) %>
+    </p>
+    <p>
+      <%= link_to 'Full game details here!', schedule_url(mns) %>
     </p>
     <br>
     <hr>
@@ -45,38 +52,45 @@
 <% end %>
 
 <% if @mno.blank? %>
-  <h1>Marin 1 NCCA League Team</h1>
+  <h1>Marin 1</h1>
   <p>
     The Marin 1 team are on a bye, they are busy taking their mothers to lunch, learning how to bake a proper sponge or writing more riveting IPL fan fiction.
   </p>
 <% else %>
-  <% @mno.each do |mno| %>
-  <h1>Marin 1 NCCA League Team</h1>
+  <% @mno.order(:date).each do |mno| %>
     <% if mno.home_team.name === 'Marin 1' %>
+      <h1>Marin 1 vs. <%= mno.away_team.name %></h1>
+       <p>
+        <strong>Date: </strong> <%= mno.date.strftime('%A, %B %d') %>
+      </p>
       <p>
-        Playing against <%= mno.away_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
+        <strong>Where:</strong> Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
       </p>
     <% else %>
+      <h1>Marin 1 vs. <%= mno.home_team.name %></h1>
       <p>
-        Playing against <%= mno.home_team.name %> on <%= mno.date.strftime('%A, %B %d') %> at <%= mno.home_team.home_field %>
+        <strong>Date: </strong> <%= mno.date.strftime('%A, %B %d') %>
+      </p>
+      <p>
+        <strong>Where: </strong><%= mno.home_team.home_field %>
         <%= link_to 'Directions!', "https://www.google.com/maps?q=#{mno.home_team.home_field}", target: 'blank' %>
       </p>
     <% end %>
     <p>
-      Players Arrive By: <%= (mno.start_time - 30.minutes).strftime('%H:%M %P') %>
+      <strong>Players Arrive By: </strong><%= (mno.start_time - 30.minutes).strftime('%H:%M %P') %>
     </p>
     <p>
-      First Ball At: <%= mno.start_time.strftime('%H:%M %P') %>
+      <strong>First Ball At: </strong><%= mno.start_time.strftime('%H:%M %P') %>
     </p>
     <p>
-      Match Fee: $20 per player
-    </p>
-    <p>
-      <%= link_to 'Full game details here!', schedule_url(mno) %>
+      <strong>Match Fee: </strong>$20 per player
     </p>
     <p>
       <%= link_to 'Sign up to play here!', game_signup_schedule_url(mno) %>
+    </p>
+    <p>
+      <%= link_to 'Full game details here!', schedule_url(mno) %>
     </p>
     <br>
     <hr>
@@ -87,33 +101,40 @@
   <h1>Marin Bears T20</h1>
   <p>The Marin Bears are on a bye, they are probably stealing picnic baskets or whatever it is that bears do.</p>
 <% else %>
-  <% @mnb.each do |mnb| %>
-  <h1>Marin Bears T20</h1>
+  <% @mnb.order(:date).each do |mnb| %>
     <% if mnb.home_team.name === 'Marin Bears T20' %>
+      <h1>Marin Bears T20 vs. <%= mnb.away_team.name %></h1>
+       <p>
+        <strong>Date: </strong> <%= mnb.date.strftime('%A, %B %d') %>
+      </p>
       <p>
-        Playing against <%= mnb.away_team.name %> on <%= mnb.date.strftime('%A, %B %d') %> at Piper Park, Larkspur.
+        <strong>Where:</strong> Piper Park, Larkspur.
         <%= link_to 'Directions!', 'https://goo.gl/maps/UpjsNTPHbaY5EYAH7', target: 'blank' %>
       </p>
     <% else %>
+      <h1>Marin 1 vs. <%= mnb.home_team.name %></h1>
       <p>
-        Playing against <%= mnb.home_team.name %> on <%= mnb.date.strftime('%A, %B %d') %> at <%= mnb.home_team.home_field %>,
+        <strong>Date: </strong> <%= mnb.date.strftime('%A, %B %d') %>
+      </p>
+      <p>
+        <strong>Where: </strong><%= mnb.home_team.home_field %>
         <%= link_to 'Directions!', "https://www.google.com/maps?q=#{mnb.home_team.home_field}", target: 'blank' %>
       </p>
     <% end %>
     <p>
-      Players Arrive By: <%= (mnb.start_time - 30.minutes).strftime('%H:%M %P') %>
+      <strong>Players Arrive By: </strong><%= (mnb.start_time - 30.minutes).strftime('%H:%M %P') %>
     </p>
     <p>
-      First Ball At: <%= mnb.start_time.strftime('%H:%M %P') %>
+      <strong>First Ball At: </strong><%= mnb.start_time.strftime('%H:%M %P') %>
     </p>
     <p>
-      Match Fee: $20 per player
-    </p>
-    <p>
-      <%= link_to 'Full game details here!', schedule_url(mnb) %>
+      <strong>Match Fee: </strong>$20 per player
     </p>
     <p>
       <%= link_to 'Sign up to play here!', game_signup_schedule_url(mnb) %>
+    </p>
+    <p>
+      <%= link_to 'Full game details here!', schedule_url(mnb) %>
     </p>
     <br>
     <hr>

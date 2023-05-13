@@ -33,6 +33,22 @@
   $20 per player
 </p>
 
-<% if day.monday? || day.tuesday? || day.wednesday? %>
-  <%= render 'schedules/partials/signup_buttons' %>
+<% if @schedule.home_team.abbreviation === "MNS" || @schedule.away_team.abbreviation === "MNS" %>
+  <% if day.monday? || day.tuesday? || day.wednesday? %>
+    <%= render 'schedules/partials/signup_buttons' %>
+    <%= render 'schedules/partials/selection_window' %>
+  <% else %>
+    <%= render 'schedules/partials/selection_window' %>
+  <% end %>
+<% elsif 
+  @schedule.home_team.abbreviation === "MNO" || @schedule.away_team.abbreviation === "MNO" ||
+  @schedule.home_team.abbreviation === "MNB" || @schedule.away_team.abbreviation === "MNB" %>
+  <% if day.monday? || day.tuesday? %>
+    <%= render 'schedules/partials/signup_buttons' %>
+    <%= render 'schedules/partials/selection_window' %>
+  <% else %>
+    <%= render 'schedules/partials/selection_window' %>
+  <% end %>
+<% else %>
+  <%= render 'schedules/partials/selection_window' %>
 <% end %>

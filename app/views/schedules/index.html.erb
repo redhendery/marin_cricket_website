@@ -8,23 +8,16 @@
 
   <div class="column">
     <h6 class="title is-5 has-text-centered">
-      <%= link_to 'Marin Socials Full Schedule', socials_schedules_path %>
-    </h6>
-    <% if @socials.blank? %>
-      <%= render 'schedules/partials/bye' %>
-    <% else %>
-      <%= render 'schedules/partials/upcoming_socials' %>
-    <% end %>
-  </div>
-
-  <div class="column">
-    <h6 class="title is-5 has-text-centered">
       <%= link_to 'Marin 1 Full Schedule', league_schedules_path %>
     </h6>
     <% if @league.blank? %>
       <%= render 'schedules/partials/bye' %>
     <% else %>
       <%= render 'schedules/partials/upcoming_league' %>
+      <br>
+      <p class="extra-padding has-text-centered">
+        For the Ones, the sign-up window closes Tuesday at 5pm Pacific.
+      </p>
     <% end %>
   </div>
 
@@ -36,6 +29,25 @@
       <%= render 'schedules/partials/bye' %>
     <% else %>
       <%= render 'schedules/partials/upcoming_bears' %>
+      <p class="extra-padding has-text-centered">
+        For the Bears, the sign-up window closes Tuesday at 5pm Pacific.
+      </p>
+    <% end %>
+    <br>
+  </div>
+
+  <div class="column">
+    <h6 class="title is-5 has-text-centered">
+      <%= link_to 'Marin Socials Full Schedule', socials_schedules_path %>
+    </h6>
+    <% if @socials.blank? %>
+      <%= render 'schedules/partials/bye' %>
+    <% else %>
+      <%= render 'schedules/partials/upcoming_socials' %>
+      <br>
+      <p class="extra-padding has-text-centered">
+        For the Socials, the sign-up window closes Wednesday at 5pm Pacific.
+      </p>
     <% end %>
   </div>
 

@@ -1,8 +1,13 @@
 Hello <%= @user.first_name %>!
 
 This weekend Marin Cricket Club has <%= @upcoming.count %> games on!
-Selection priorty is given to paid club members in every instance. Pay your dues at the link below:
+Selection priorty is given to paid club members in every instance. Copy and paste the link below to pay your dues:
 <%= membership_url %>
+
+Selection times for teams are as follows:
+Marin One: Tuesday, 5pm 
+Marin Bears (T20): Tuesday, 5pm
+Marin Socials: Wednesday, 5pm
 
 <% if @mns.blank? %>
 Marin CC Socials

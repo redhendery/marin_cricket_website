@@ -58,6 +58,17 @@
     <%= video_tag 'sizzle_reel.mp4', controls: true, preload: true %>
     <figcaption class="has-text-centered">
       Come play some cricket in Marin!
-   </figcaption>
+    </figcaption>
+    <p class="extra-padding is-size-4 has-text-centered has-text-weight-semibold">
+      With thanks to our incredible sponsors!
+    </p>
+    <div class="columns is-vcentered">
+      <div class="column">
+        <%= link_to image_tag('nyl_logo.jpg', alt: 'New York Life'), 'https://www.newyorklife.com', target: 'blank' %>
+      </div>
+      <div class="column">    
+        <%= link_to image_tag('obvious.jpg', alt: 'Obvious Ventures'), 'https://obvious.com', class: 'is-vcentered', target: 'blank' %>
+      </div>
+    </div>
   </div>
 </div>
